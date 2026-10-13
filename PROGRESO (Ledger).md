@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[03.11 - Capitulo 11 - Memoria Viva|Capítulo 11 — Memoria viva]].
-- **Siguiente:** Capítulo 12 — Bibliotecas de prompts, plantillas y listas de calidad ([[assets/upstream-site/how.nixfred.com/12-prompt-library|original]]).
+- **Último completado:** [[03.12 - Capitulo 12 - Prompts, Plantillas y Calidad|Capítulo 12 — Prompts, plantillas y calidad]].
+- **Siguiente:** Capítulo 13 — Disciplina de contexto ([[assets/upstream-site/how.nixfred.com/13-context|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -39,6 +39,7 @@ date: 2026-10-12
 | 2026-10-12 | Capítulo 9 | ✅ Hecho | Árbol USER con lo básico de Robert (idioma, foco, forma de trabajar) y sus convenciones en `OPERATIONAL_RULES.md`. Estilo y verificación de nixfredOS sin cambios. Correcciones permanentes escritas sin preguntar: probado con una sesión real (formato de 24 h) y empujado por `brain-backup`. |
 | 2026-10-12 | Capítulo 10 | ✅ Hecho | Todo en `~/Projects/<repo>`: 22 repos clonados y el vault, los playbooks de niri y `assets` movidos desde `/zt`. `USER/PROJECTS.md` con 25 proyectos, visibilidad, rol, alias y regla de privacidad; verificado con `cursor-agent`. `AGENTS.md` en `assets` ([assets#3](https://github.com/robert-flo/assets/pull/3)). `rebuild.sh` paso 16. |
 | 2026-10-12 | Capítulo 11 | ✅ Hecho | La guardia `claude` ahora responde las llamadas `--print` con `cursor-agent` (modelo `composer-2.5`, `HOME` aislado, sin hooks). ConfigEval corre por primera vez: 90 %. `LMF4_EXTRACT_MODEL=auto`: primera extracción real (3 LoA, 4 decisiones). Ollama solo con `nomic-embed-text` + timer `memory-embed`: 841 embeddings, búsqueda semántica verificada. "Remember" escribe en el mismo turno. `rebuild.sh` pasos 8 y 17; [sura-home#3](https://github.com/robert-flo/sura-home/pull/3). |
+| 2026-10-13 | Capítulo 12 | ✅ Hecho | `/check` (apunta a Verification №2 y al estilo de `DA_IDENTITY.md`) y `/pr` globales en `~/.claude/commands`; skill `cerrar-capitulo` con plantilla y `/seguir` en el vault. `cursor-agent` carga comandos y skills globales y del proyecto (canarios). `/check` exigió evidencia ante un "debería funcionar". |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
