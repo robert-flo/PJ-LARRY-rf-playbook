@@ -77,7 +77,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[01.3 - Capitulo 3 - Hablar en Opciones|03 — Hablar en Opciones]] ✅: hábito y nivel como User Rules globales · [[assets/upstream-site/how.nixfred.com/03-ask|original]]
 
 ### 2️⃣ Instalación del Stack (Part II)
-- 04 — The Larry Stack: Repos & Install Order · [[assets/upstream-site/how.nixfred.com/04-larry-stack|original]]
+- [[02.4 - Capitulo 4 - El Stack de Larry|04 — The Larry Stack: Repos y Orden de Instalación]] ✅: los cuatro sistemas traducidos, forks en `~/Projects`, Fabric CLI · [[assets/upstream-site/how.nixfred.com/04-larry-stack|original]]
 - 05 — The One-Command Bootstrap → **nixfredOS** · [[assets/upstream-site/how.nixfred.com/05-bootstrap|original]] · [[assets/upstream-site/nixfredos.com/install|nixfredOS install]]
 - 06 — Tailscale & the Multi-Host Mesh · [[assets/upstream-site/how.nixfred.com/06-tailscale|original]]
 - 07 — Your Forever Private Repo (and gup) · [[assets/upstream-site/how.nixfred.com/07-forever-repo|original]]

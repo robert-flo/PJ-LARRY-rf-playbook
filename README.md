@@ -41,6 +41,8 @@ PJ-LARRY-rf-playbook/
 │   ├── 01.1 - Capitulo 1 - El Paradigma de la Terminal.md
 │   ├── 01.2 - Capitulo 2 - Primera Sesion.md
 │   └── 01.3 - Capitulo 3 - Hablar en Opciones.md
+├── 02 - Instalacion del Stack/                        # 🧱 Part II
+│   └── 02.4 - Capitulo 4 - El Stack de Larry.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
@@ -54,7 +56,7 @@ PJ-LARRY-rf-playbook/
         └── nixfredos.com/
 ```
 
-Las carpetas `02` a `09` (Instalación del Stack, Configuración, Uso Diario, Memoria y Reglas, Escalar, Conectar y Automatizar, Maestría, Módulos) se crean a medida que se ejecutan sus capítulos.
+Las carpetas `03` a `09` (Configuración, Uso Diario, Memoria y Reglas, Escalar, Conectar y Automatizar, Maestría, Módulos) se crean a medida que se ejecutan sus capítulos.
 
 ---
 
