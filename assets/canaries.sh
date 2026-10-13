@@ -36,10 +36,13 @@ report() { # name ok answer
 # Several prompts share one session (--resume); only the last answer is checked.
 # --before-code: MUST has to match before the first code fence (approach first, code after).
 case_() {
-  local pre=0; [[ $1 == --before-code ]] && { pre=1; shift; }
+  local pre=0 dir=$ws
+  [[ $1 == --in ]] && { dir=$2; shift 2; }
+  [[ $1 == --before-code ]] && { pre=1; shift; }
   local name=$1 must=$2 mustnot=$3; shift 3
   if ((${#only[@]})) && [[ ! " ${only[*]} " == *" $name "* ]]; then return; fi
   local sid="" out answer=""
+  cd "$dir" || return
   for p in "$@"; do
     if [[ -z $sid ]]; then out=$(printf '%s' "$p" | agent)
     else out=$(printf '%s' "$p" | agent --resume "$sid"); fi
@@ -51,7 +54,18 @@ case_() {
   ((pre)) && checked=$(sed '/^[[:space:]]*```/,$d' <<<"$answer")
   [[ -n $must ]] && ! grep -qiE -- "$must" <<<"$checked" && ok=0
   [[ -n $mustnot ]] && grep -qiE -- "$mustnot" <<<"$answer" && ok=0
+  cd "$ws"
   report "$name" "$ok" "$answer"
+}
+
+# A throwaway repo with one staged change carrying an unvalidated rm -rf, for the review cases.
+review_repo() {
+  local r="${ws%/ws}/review-repo"
+  rm -rf "$r" && mkdir -p "$r" && cd "$r" || return 1
+  git init -q -b master && git config user.email canary@localhost && git config user.name canary
+  printf '#!/bin/bash\n# cleanup build dir\nDIR=build\nrm -rf "$DIR"\n' >clean.sh && git add . && git commit -qm init
+  printf '#!/bin/bash\n# cleanup build dir\nDIR=$1\nrm -rf "$DIR/"\n' >clean.sh && git add clean.sh
+  cd "$ws"; echo "$r"
 }
 
 ctx='Contexto de trabajo: estamos migrando la auth de una API a JWT, tokens de 15 min y refresh en cookie httpOnly. Falta el endpoint /refresh y los tests. Responde solo "entendido".'
@@ -76,6 +90,13 @@ case_ clarify '¿|\?|necesito|dime' 'borré (los|[0-9])' 'Borra los archivos vie
 case_ mode-proto 'prototipo|/zt/' '' 'Quiero algo para ver mis bookmarks de X de una forma más bonita, pero no sé bien qué.'
 case_ --before-code mode-plan 'modo: ?plan|/plan|modo plan|feature-dev|este plan|\*\*plan\*\*' '' 'Quiero migrar el sitio de un cliente de HTML estático a Astro con un CMS para que él edite los textos.'
 case_ --before-code feature-dev 'entend[ií] bien|fase 1|spec' '' '/feature-dev un comando de terminal que exporte una nota de Obsidian a PDF con su tema'
+
+# Chapter 17: /code-review finds the empty-variable rm -rf, answers in Spanish, changes nothing.
+if ((${#only[@]} == 0)) || [[ " ${only[*]} " == *" code-review "* ]]; then
+  rr=$(review_repo)
+  case_ --in "$rr" code-review 'rm -rf' 'Don.t merge|I changed nothing|Suggestion:' '/code-review'
+  git -C "$rr" diff --cached --quiet && report code-review-readonly 0 "staged change disappeared" || report code-review-readonly 1 "staged change intact"
+fi
 
 printf 'resultado: %d ✓ · %d ✗%s\n' "$pass" "$fail" "$( ((fail)) && printf ' (%s)' "${failed[*]}")" | tee -a "$log"
 jq -n --arg model "$model" --arg date "$(date -Is)" --argjson pass "$pass" --argjson fail "$fail" \
