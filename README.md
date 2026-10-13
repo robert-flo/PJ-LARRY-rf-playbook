@@ -73,7 +73,8 @@ PJ-LARRY-rf-playbook/
 ├── 07 - Conectar y Automatizar/                       # 🔌 Part VII
 │   ├── 07.26 - Capitulo 26 - Conectores.md
 │   ├── 07.27 - Capitulo 27 - Mas Alla del Chat.md
-│   └── 07.28 - Capitulo 28 - Rutinas.md
+│   ├── 07.28 - Capitulo 28 - Rutinas.md
+│   └── 07.29 - Capitulo 29 - Disenar y Desplegar Rutinas.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
