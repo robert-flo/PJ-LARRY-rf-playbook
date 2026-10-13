@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[03.13 - Capitulo 13 - Disciplina de Contexto|Capítulo 13 — Disciplina de contexto]].
-- **Siguiente:** Capítulo 14 — TELOS ([[assets/upstream-site/how.nixfred.com/14-telos|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[03.14 - Capitulo 14 - TELOS|Capítulo 14 — TELOS]]. Fin de la Parte III.
+- **Siguiente:** Capítulo 15 — El prompting es una habilidad ([[assets/upstream-site/how.nixfred.com/15-prompting|original]]), inicio de la Parte IV. Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -41,6 +41,7 @@ date: 2026-10-12
 | 2026-10-12 | Capítulo 11 | ✅ Hecho | La guardia `claude` ahora responde las llamadas `--print` con `cursor-agent` (modelo `composer-2.5`, `HOME` aislado, sin hooks). ConfigEval corre por primera vez: 90 %. `LMF4_EXTRACT_MODEL=auto`: primera extracción real (3 LoA, 4 decisiones). Ollama solo con `nomic-embed-text` + timer `memory-embed`: 841 embeddings, búsqueda semántica verificada. "Remember" escribe en el mismo turno. `rebuild.sh` pasos 8 y 17; [sura-home#3](https://github.com/robert-flo/sura-home/pull/3). |
 | 2026-10-13 | Capítulo 12 | ✅ Hecho | `/check` (apunta a Verification №2 y al estilo de `DA_IDENTITY.md`) y `/pr` globales en `~/.claude/commands`; skill `cerrar-capitulo` con plantilla y `/seguir` en el vault. `cursor-agent` carga comandos y skills globales y del proyecto (canarios). `/check` exigió evidencia ante un "debería funcionar". |
 | 2026-10-13 | Capítulo 13 | ✅ Hecho | Equivalentes: `/context`, `/summarize` (sin argumento), `/clear`, `/rewind`. Comando global `/relevo <foco>` para dirigir el resumen. Barra de contexto amarilla al 60 %. Regla en `OPERATIONAL_RULES.md`: Sura propone `/clear` al cambiar de tema (3 de 3 con `auto`; `composer-2.5` no). Base fija medida: ~26k tokens, se mantiene. `rebuild.sh` paso 2 fija `rewind`. |
+| 2026-10-13 | Capítulo 14 | ✅ Hecho | Entrevista TELOS con menús (cinco bloques); `TELOS.md` con las palabras de Robert en `sura-brain-user` (privado; nada copiado al vault). Purga `clean`, filtro de contexto propio en lugar del fijo del generador, resumen regenerado. Regla "Deep context": leer el archivo completo ante preguntas estratégicas y frenar desvíos al entorno. Dos canarios responden contra las metas. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
@@ -49,5 +50,6 @@ date: 2026-10-12
 - Pasos del humano del Capítulo 5: `codex login`; extensión de Interceptor en un perfil de prueba de Chrome + `INTERCEPTOR_TEST_CONTEXT_ID`; `CLOUDFLARE_API_TOKEN` en `~/.claude/.env`.
 - Melitta: servicios y timers de nixfredOS deshabilitados (chocaban con los de `gracie`). QA gráfica opcional con `sudo passwd melitta`.
 - Renombrar el usuario Linux `sura` y los playbooks de niri: tarea del humano.
+- TELOS: secciones aún vacías (Beliefs, Books, Sparks, Models…) y las carpetas `CURRENT_STATE/` e `IDEAL_STATE/` siguen con muestras; se completan con `/interview` cuando toque revisar.
 - Fabric: `fabric --setup` con patterns y strategies apuntando al fork, en el último paso.
 - Integraciones de los forks al estilo `PJ-NIRI-fo-*` (workflow `sync-personal-fork`, agentes PM/RV/WK, `AGENTS.md`, `docs/agents/`): último paso del playbook.

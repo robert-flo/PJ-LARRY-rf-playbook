@@ -54,7 +54,8 @@ PJ-LARRY-rf-playbook/
 │   ├── 03.10 - Capitulo 10 - Proyectos, Roles y Referencias.md
 │   ├── 03.11 - Capitulo 11 - Memoria Viva.md
 │   ├── 03.12 - Capitulo 12 - Prompts, Plantillas y Calidad.md
-│   └── 03.13 - Capitulo 13 - Disciplina de Contexto.md
+│   ├── 03.13 - Capitulo 13 - Disciplina de Contexto.md
+│   └── 03.14 - Capitulo 14 - TELOS.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
