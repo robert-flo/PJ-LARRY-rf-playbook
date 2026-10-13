@@ -71,7 +71,7 @@ flowchart TD
 Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.com/`. La nota propia se crea cuando el capítulo se ejecuta; hasta entonces el enlace apunta al original.
 
 ### 1️⃣ Fundamentos (Part I)
-- [[01.0 - Paso 0 - Desde Cero con cursor-agent|00 — Desde Cero con cursor-agent]] ⏳ · [[assets/upstream-site/how.nixfred.com/00-start-here|original]]
+- [[01.0 - Paso 0 - Desde Cero con cursor-agent|00 — Desde Cero con cursor-agent]] ✅: login, modo `--force`, nixbash como capa sobre Omarchy · [[assets/upstream-site/how.nixfred.com/00-start-here|original]]
 - 01 — The Paradigm: Why You Live in the Terminal · [[assets/upstream-site/how.nixfred.com/01-the-paradigm|original]]
 - 02 — Your First Session: Earn Trust in Five Minutes · [[assets/upstream-site/how.nixfred.com/02-first-session|original]]
 - 03 — Talk in Choices: The AskUserQuestion Habit · [[assets/upstream-site/how.nixfred.com/03-ask|original]]
