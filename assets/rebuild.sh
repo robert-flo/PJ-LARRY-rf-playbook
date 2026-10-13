@@ -315,6 +315,12 @@ else run bash -c 'cd ~/.local/share/sura-cloud && bun install'; fi
 if [[ -n ${CURSOR_API_KEY:-} || -f ~/.cursor/sdk/auth.json ]]; then ok "credencial de sura-cloud"
 else todo "pendiente (humano): sura-cloud login"; fi
 
+step "20. Flujos: sura-flow (Capítulo 24)"
+mkdir -p ~/.local/share/sura-flow/examples
+put "$VAULT/assets/sura-flow/sura-flow.ts" ~/.local/share/sura-flow/sura-flow.ts 644
+put "$VAULT/assets/sura-flow/examples/audit.ts" ~/.local/share/sura-flow/examples/audit.ts 644
+put "$VAULT/assets/sura-flow/sura-flow" ~/.local/bin/sura-flow 755
+
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi
 ((CHECK)) && echo "Revisión terminada (sin cambios)." || echo "Máquina al día hasta el último capítulo cubierto por este script."
