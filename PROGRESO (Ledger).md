@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[08.36 - Capitulo 36 - Manual de Operacion|Capítulo 36 — Manual de operación]] (fin de las Partes I–VIII).
-- **Siguiente:** Último paso: integraciones de los forks `PJ-LARRY-fo-*` y `fabric --setup` apuntando al fork. Para retomar: `/seguir` en el vault.
+- **Último completado:** [[08.37 - Paso Final - Forks y Fabric|Paso final — forks y Fabric]].
+- **Siguiente:** Módulos opcionales (Parte 9 del MOC), si Robert los quiere. Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -64,6 +64,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 34 | ✅ Hecho (solo documentación) | Escalera de confianza (investiga → actúa con revisión → actúa sola) y tres recetas traducidas; lo existente (canarios, `/buenosdias`) está en el peldaño 1. |
 | 2026-10-13 | Capítulo 35 | ✅ Hecho | Auditoría "borrar sin piedad" frenada por Robert: el objetivo es nixfredOS tal cual. Nada quitado. nixfredOS comparado con su instalador: solo diferencias de plantilla. Regla nueva "nixfredOS stays as shipped". Reportado sin tocar: 51 skills del instalador duplicadas en el listado (~7k tokens/sesión). |
 | 2026-10-13 | Capítulo 36 | ✅ Hecho | Manual de operación público: [[10.5 - Manual de Operacion\|10.5]], índice de todo el setup con rutas a la capa USER y sin copiar nada privado. Notas de campo de Larry aplicadas a `cursor-agent`. Fin de las Partes I–VIII. |
+| 2026-10-13 | Paso final | ✅ Hecho | Integraciones de los 10 forks `PJ-LARRY-fo-*` al estilo `PJ-NIRI-fo-*`: sync ADR 0024 (primer run en verde en los 10), `AGENTS.md` + `docs/agents/`, etiquetas, issues y subagentes WK/RV de `cursor-agent` con Sura como PM. Fabric: 265 patterns y 9 strategies desde el fork. Ver [[08.37 - Paso Final - Forks y Fabric\|nota]]. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
@@ -76,5 +77,5 @@ date: 2026-10-12
 - Renombrar el usuario Linux `sura` y los playbooks de niri: tarea del humano.
 - TELOS: secciones aún vacías (Beliefs, Books, Sparks, Models…) y las carpetas `CURRENT_STATE/` e `IDEAL_STATE/` siguen con muestras; se completan con `/interview` cuando toque revisar.
 - `cursor-agent`: confirmar en sesión interactiva qué tecla abre el modo shell (equivalente al `!` de Claude Code).
-- Fabric: `fabric --setup` con patterns y strategies apuntando al fork, en el último paso.
-- Integraciones de los forks al estilo `PJ-NIRI-fo-*` (workflow `sync-personal-fork`, agentes PM/RV/WK, `AGENTS.md`, `docs/agents/`): último paso del playbook.
+- Fabric: proveedor y modelo (clave de API) con `fabric --setup`; patterns y strategies ya vienen del fork.
+- Forks: si el sync diario abre un issue `[Conflicto Rebase]`, rebasar `personal` a mano (instrucciones en el issue).
