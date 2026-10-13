@@ -80,7 +80,8 @@ PJ-LARRY-rf-playbook/
 ├── 08 - Maestria/                                     # 🎓 Part VIII
 │   ├── 08.32 - Capitulo 32 - Patrones Multiagente.md
 │   ├── 08.33 - Capitulo 33 - Ingenieria que se Acumula Bien Hecha.md
-│   └── 08.34 - Capitulo 34 - Agentes Proactivos.md
+│   ├── 08.34 - Capitulo 34 - Agentes Proactivos.md
+│   └── 08.35 - Capitulo 35 - Principios.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
