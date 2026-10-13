@@ -65,6 +65,8 @@ PJ-LARRY-rf-playbook/
 ├── 05 - Memoria y Reglas/                             # 🧠 Part V
 │   ├── 05.20 - Capitulo 20 - Ingenieria que se Acumula.md
 │   └── 05.21 - Capitulo 21 - Hooks.md
+├── 06 - Escalar/                                      # 📈 Part VI
+│   └── 06.22 - Capitulo 22 - Subagentes y Contexto Bifurcado.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md

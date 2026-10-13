@@ -305,6 +305,16 @@ if systemctl --user is-enabled -q sura-canaries.timer 2>/dev/null && systemctl -
 elif ((CHECK)); then todo "pendiente: activar sura-canaries.timer"
 else systemctl --user daemon-reload && systemctl --user enable --now sura-canaries.timer && ok "timer sura-canaries activo"; fi
 
+step "19. Cloud agents: sura-cloud (Capítulo 22)"
+mkdir -p ~/.local/share/sura-cloud
+put "$VAULT/assets/sura-cloud/sura-cloud.ts" ~/.local/share/sura-cloud/sura-cloud.ts 644
+put "$VAULT/assets/sura-cloud/package.json" ~/.local/share/sura-cloud/package.json 644
+put "$VAULT/assets/sura-cloud/sura-cloud" ~/.local/bin/sura-cloud 755
+if [[ -f ~/.local/share/sura-cloud/node_modules/@cursor/sdk/package.json ]]; then ok "@cursor/sdk instalado"
+else run bash -c 'cd ~/.local/share/sura-cloud && bun install'; fi
+if [[ -n ${CURSOR_API_KEY:-} || -f ~/.cursor/sdk/auth.json ]]; then ok "credencial de sura-cloud"
+else todo "pendiente (humano): sura-cloud login"; fi
+
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi
 ((CHECK)) && echo "Revisión terminada (sin cambios)." || echo "Máquina al día hasta el último capítulo cubierto por este script."

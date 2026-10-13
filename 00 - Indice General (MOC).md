@@ -104,7 +104,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[05.21 - Capitulo 21 - Hooks|21 — Hooks: Determinism You Can't Skip]] ✅: qué hooks corren en Cursor, adaptador `claude-toolname.sh`, `PublicPushGate` con patrones privados · [[assets/upstream-site/how.nixfred.com/21-hooks|original]]
 
 ### 6️⃣ Escalar (Part VI)
-- 22 — Subagents & Forked Context · [[assets/upstream-site/how.nixfred.com/22-subagents|original]]
+- [[06.22 - Capitulo 22 - Subagentes y Contexto Bifurcado|22 — Subagents & Forked Context]] ✅: cloud agents por PR con `sura-cloud`, revisor de contexto limpio en `/code-review` · [[assets/upstream-site/how.nixfred.com/22-subagents|original]]
 - 23 — Swarms, Migrations & Agent Teams · [[assets/upstream-site/how.nixfred.com/23-swarms|original]]
 - 24 — Dynamic Workflows & Ultracode · [[assets/upstream-site/how.nixfred.com/24-workflows|original]]
 - 25 — Tacit Knowledge & Code Reuse · [[assets/upstream-site/how.nixfred.com/25-tacit|original]]
