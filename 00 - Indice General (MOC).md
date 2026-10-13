@@ -121,7 +121,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[08.32 - Capitulo 32 - Patrones Multiagente|32 — Multi-Agent Patterns]] ✅: generador-crítico con `critic.md` · [[assets/upstream-site/how.nixfred.com/32-multi-agent-patterns|original]]
 - [[08.33 - Capitulo 33 - Ingenieria que se Acumula Bien Hecha|33 — Compounding Engineering, Done Properly]] ✅: diario + `/destilar` · [[assets/upstream-site/how.nixfred.com/33-compounding-advanced|original]]
 - [[08.34 - Capitulo 34 - Agentes Proactivos|34 — Proactive Agents: Routines Done Right]] ✅ (solo documentación) · [[assets/upstream-site/how.nixfred.com/34-routines-advanced|original]]
-- 35 — Principles of an AI-Grade Setup · [[assets/upstream-site/how.nixfred.com/35-principles|original]]
+- [[08.35 - Capitulo 35 - Principios|35 — Principles of an AI-Grade Setup]] ✅: auditoría; nixfredOS se queda tal cual · [[assets/upstream-site/how.nixfred.com/35-principles|original]]
 - 36 — Your Operating Manual + Larry's Field Notes · [[assets/upstream-site/how.nixfred.com/36-operating-manual|original]]
 
 ### 9️⃣ Módulos
