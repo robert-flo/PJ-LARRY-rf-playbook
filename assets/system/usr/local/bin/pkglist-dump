@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Writes the explicit package lists (the Linux equivalent of a Brewfile) for every user who opted in
+# by creating ~/.config/pkglist/. Run by /etc/pacman.d/hooks/pkglist.hook after each transaction.
+#   pacman.txt  explicit packages from the sync repos   (restore: sudo pacman -S --needed - < pacman.txt)
+#   aur.txt     explicit foreign packages (AUR, local)  (restore: yay -S --needed - < aur.txt)
+set -uo pipefail
+
+native=$(pacman -Qqen)
+foreign=$(pacman -Qqem)
+
+while IFS=: read -r user _ _ _ _ home _; do
+  dir="$home/.config/pkglist"
+  [[ -d $dir && ! -L $dir ]] || continue
+  for pair in "pacman.txt|$native" "aur.txt|$foreign"; do
+    f="$dir/${pair%%|*}"
+    tmp=$(mktemp "$dir/.pkglist.XXXXXX") || continue
+    printf '%s\n' "${pair#*|}" >"$tmp"
+    if cmp -s "$tmp" "$f"; then rm -f "$tmp"; else chown "$user:" "$tmp" && chmod 644 "$tmp" && mv "$tmp" "$f"; fi
+  done
+done < <(getent passwd)
+exit 0

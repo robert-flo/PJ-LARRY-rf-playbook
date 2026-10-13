@@ -213,7 +213,10 @@ elif ((CHECK)); then todo "pendiente: omarchy-install-service-tailscale (abre un
 else omarchy-install-service-tailscale && ts_state=Running || bad "falló omarchy-install-service-tailscale"; fi
 if [[ $ts_state == Running ]]; then
   prefs=$(tailscale debug prefs 2>/dev/null)
-  [[ $(jq -r .OperatorUser <<<"$prefs") == "$USER" ]] && ok "operador $USER" || run sudo tailscale set --operator="$USER"
+  op=$(jq -r '.OperatorUser // ""' <<<"$prefs")
+  if [[ $op == "$USER" ]]; then ok "operador $USER"
+  elif [[ -n $op ]]; then todo "operador de Tailscale es $op (daemon de sistema compartido): no se cambia"
+  else run sudo tailscale set --operator="$USER"; fi
   [[ $(jq -r .RunSSH <<<"$prefs") == true ]] && ok "Tailscale SSH" || run tailscale set --ssh
   [[ $(jq -r .CorpDNS <<<"$prefs") == true ]] && ok "MagicDNS (accept-dns)" || run tailscale set --accept-dns=true
 fi
@@ -230,7 +233,7 @@ put "$HOME_ASSETS/.cursor/hooks/brain-backup.sh" ~/.cursor/hooks/brain-backup.sh
 for u in brain-backup.service brain-backup.timer; do
   put "$HOME_ASSETS/.config/systemd/user/$u" ~/.config/systemd/user/"$u" 644
 done
-if systemctl --user is-enabled -q brain-backup.timer 2>/dev/null; then ok "timer brain-backup"
+if systemctl --user is-enabled -q brain-backup.timer 2>/dev/null && systemctl --user is-active -q brain-backup.timer; then ok "timer brain-backup"
 elif ((CHECK)); then todo "pendiente: activar brain-backup.timer"
 else systemctl --user daemon-reload && systemctl --user enable --now brain-backup.timer && ok "timer brain-backup activo"; fi
 if grep -qs 'DOTBARE_DIR="$HOME/.cfg"' ~/.bashrc; then ok "bloque dotbare + wgup en ~/.bashrc"
@@ -247,6 +250,18 @@ for pair in "sura-brain|$HOME/.claude/.git" "sura-brain-user|${XDG_CONFIG_HOME:-
   if [[ $url == *"/$repo.git" ]]; then ok "$repo (PRIVATE) ← ${gitdir/#$HOME/\~}"
   else todo "$repo existe pero ${gitdir/#$HOME/\~} no apunta a él: restaurar (Capítulo 8)"; fi
 done
+
+step "15. Disaster recovery (Capítulo 8)"
+SYS_ASSETS="$VAULT/assets/system"
+for f in usr/local/bin/pkglist-dump:755 etc/pacman.d/hooks/pkglist.hook:644; do
+  rel=${f%:*} mode=${f#*:}
+  if same "$SYS_ASSETS/$rel" "/$rel"; then ok "/$rel"
+  else run sudo install -Dm"$mode" "$SYS_ASSETS/$rel" "/$rel"; fi
+done
+mkdir -p ~/.config/pkglist
+[[ -s ~/.config/pkglist/pacman.txt ]] && ok "manifiesto ~/.config/pkglist ($(wc -l <~/.config/pkglist/pacman.txt) pacman, $(wc -l <~/.config/pkglist/aur.txt 2>/dev/null || echo 0) AUR)" \
+  || run sudo /usr/local/bin/pkglist-dump
+todo "restaurar otra PC: assets/restore.sh (nota 02.8)"
 
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi

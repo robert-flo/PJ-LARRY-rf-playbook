@@ -26,7 +26,7 @@ Está pensada para que un agente la ejecute en orden y, a la vez, le explique al
 Lee AGENTS.md y PROGRESO (Ledger).md de este vault y continúa el playbook donde lo dejamos.
 ```
 
-**En una PC nueva:** sigue [`10 - Referencias/10.4 - Reconstruir en una PC Nueva.md`](10%20-%20Referencias/10.4%20-%20Reconstruir%20en%20una%20PC%20Nueva.md). Tras los pasos del humano (`gh auth login`, `cursor-agent login`, User Rules), `assets/rebuild.sh --check` muestra qué falta y `assets/rebuild.sh` lo aplica.
+**En una PC nueva:** sigue [`10 - Referencias/10.4 - Reconstruir en una PC Nueva.md`](10%20-%20Referencias/10.4%20-%20Reconstruir%20en%20una%20PC%20Nueva.md). Tras los pasos del humano (`gh auth login`, `cursor-agent login`, User Rules), `assets/restore.sh` trae a Sura desde los repos privados, `assets/rebuild.sh --check` muestra qué falta y `assets/rebuild.sh` lo aplica.
 
 ---
 
@@ -47,7 +47,8 @@ PJ-LARRY-rf-playbook/
 │   ├── 02.4 - Capitulo 4 - El Stack de Larry.md
 │   ├── 02.5 - Capitulo 5 - nixfredOS en cursor-agent.md
 │   ├── 02.6 - Capitulo 6 - Tailscale.md
-│   └── 02.7 - Capitulo 7 - Repos Privados para Siempre.md
+│   ├── 02.7 - Capitulo 7 - Repos Privados para Siempre.md
+│   └── 02.8 - Capitulo 8 - Recuperacion ante Desastres.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
@@ -55,9 +56,11 @@ PJ-LARRY-rf-playbook/
 │   └── 10.4 - Reconstruir en una PC Nueva.md
 ├── nixfredOS/                                         # 🧠 Submódulo: fork PJ-LARRY-fo-nixfredOS (personal)
 └── assets/
+    ├── restore.sh                                     # 🛟 Restaura HOME, ~/.claude, USER y memoria desde los repos privados (Cap. 8)
     ├── rebuild.sh                                     # 💻 Reconstruye la máquina en una PC nueva (ver 10.4)
     ├── nixfredos-substitute.ts                        # Rellena los placeholders de identidad de nixfredOS
     ├── home/                                          # Copias de archivos de usuario (statusline, cli-config, hooks de Cursor, guardia claude, systemd)
+    ├── system/                                        # Archivos de sistema (hook de pacman pkglist)
     └── upstream-site/                                 # Copia del sitio en Markdown (ver 10.3)
         ├── html2md.py
         ├── how.nixfred.com/                           # 55 páginas + install.sh + seed/
