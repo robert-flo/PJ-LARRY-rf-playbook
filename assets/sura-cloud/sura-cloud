@@ -1,0 +1,2 @@
+#!/bin/bash
+exec bun "${XDG_DATA_HOME:-$HOME/.local/share}/sura-cloud/sura-cloud.ts" "$@"

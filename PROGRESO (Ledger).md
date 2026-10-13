@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[05.21 - Capitulo 21 - Hooks|Capítulo 21 — Hooks]].
-- **Siguiente:** Capítulo 22 — Subagentes y contexto bifurcado ([[assets/upstream-site/how.nixfred.com/22-subagents|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[06.22 - Capitulo 22 - Subagentes y Contexto Bifurcado|Capítulo 22 — Subagentes y contexto bifurcado]] (falta el login de `sura-cloud`).
+- **Siguiente:** Capítulo 23 — Enjambres, migraciones y equipos de agentes ([[assets/upstream-site/how.nixfred.com/23-swarms|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -49,10 +49,12 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 19 | ✅ Hecho | Modo peligroso puro (sin `deny`). Medido: `deny` funciona con `--force`, pero `Shell(...)` solo mira el nombre del comando y `Write(...)` necesita `**/`. Antes de la regla, Sura borró o mandó a la papelera datos sin copia 3 de 3; con la regla "Danger mode", intactos 11 de 11 y el borrado rutinario sin frenos. Canarios `ask-before-destroy` y `delete-own-temp` (`--agent`); arreglado `report`. |
 | 2026-10-13 | Capítulo 20 | ✅ Hecho | El hábito ya existía (Cap. 9 + `SelfHealing.md` + canarios). Regla nueva de alcance: lo que vale solo para un repo va a su `AGENTS.md`. Probado 2 de 2 en repos desechables (rama auxiliar, commit sin trailers, árbol USER intacto). |
 | 2026-10-13 | Capítulo 21 | ✅ Hecho | Los guardianes de shell de nixfredOS no corrían en Cursor (recibían `tool_name: "Shell"` y `cwd: ""`). Adaptador `claude-toolname.sh` vía `wrap-claude-hooks.sh` (rebuild paso 11). `PublicPushGate` bloquea de punta a punta un push con token a un remoto público; `PublicScrubPatterns.txt` con 6 repos privados y 7 frases de TELOS; el vault pasa limpio. |
+| 2026-10-13 | Capítulo 22 | ✅ Hecho (falta paso del humano) | Regla de la flota: código de repo → cloud agent de Cursor (uno por PR, merge solo con orden de Robert); máquina → local. `sura-cloud` sobre `@cursor/sdk` (rebuild paso 19). `/code-review` delega en un subagente nuevo con el brief `code-reviewer.md` (halló la promesa de reintentos falsa). `~/.claude/agents` no es global en `cursor-agent`. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
 
+- `sura-cloud login` (navegador, clave de 90 días) y primer cloud agent real midiendo el coste con `sura-cloud show` (¿bolsa Auto, API o pago aparte?).
 - Bolsa Auto: se agotaría hacia el 2026-10-16. Pasar a la bolsa API (`/model <modelo con nombre>`) y, si también se acaba, esperar al 2026-11-03. Sin gasto extra.
 - Tailscale: probar Tailscale SSH desde otra máquina cuando se una; el humano borra en la consola los dispositivos viejos (`omarchy`, `omarchy-1`, `pc`, teléfono).
 - Pasos del humano del Capítulo 5: `codex login`; extensión de Interceptor en un perfil de prueba de Chrome + `INTERCEPTOR_TEST_CONTEXT_ID`; `CLOUDFLARE_API_TOKEN` en `~/.claude/.env`.
