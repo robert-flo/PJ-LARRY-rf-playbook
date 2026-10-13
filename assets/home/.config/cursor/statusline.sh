@@ -177,7 +177,7 @@ fi
 have_usage=0
 if [[ -s $usage_cache ]] && jq -e '.updated' "$usage_cache" >/dev/null 2>&1; then
   have_usage=1
-  IFS=$'\x1f' read -r h5 h5req h1 sess mpct apct pace runout proj reset reset_days age err < <(jq -r \
+  IFS=$'\x1f' read -r h5 h5req h1 sess mpct apct pace runout proj reset reset_days age err gpct greset_days gavail < <(jq -r \
     --arg sid "$sid" --argjson now "$((now * 1000))" '
     def money: if . >= 10000 then "$\(. / 100 | round)"
       else (round) as $c | "$\($c / 100 | floor).\($c % 100 | tostring | if length < 2 then "0" + . else . end)" end;
@@ -203,7 +203,12 @@ if [[ -s $usage_cache ]] && jq -e '.updated' "$usage_cache" >/dev/null 2>&1; the
         (if (.cycle_end - $now) <= 0 then "0"
          else ((.cycle_end - $now) / 86400000 | floor | tostring) end),
         ((($now - .updated) / 1000) | floor | tostring),
-        (if .error and (.error_at // 0) > .updated then .error else "" end)
+        (if .error and (.error_at // 0) > .updated then .error else "" end),
+        (if .grok_pct == null then "" else (.grok_pct | tostring) end),
+        (if .grok_reset_ms == null then ""
+         elif (.grok_reset_ms - $now) <= 0 then "0"
+         else ((.grok_reset_ms - $now) / 86400000 | floor | tostring) end),
+        (if .grok_available == null then "" elif .grok_available then "1" else "0" end)
       ] | join("\u001f")' "$usage_cache")
 fi
 
@@ -234,6 +239,41 @@ print_pace() { # full|compact
       raw " "
       put "$pc" "${pace}x"
       [[ -n $ahead ]] && raw " " && put 31 "$ahead"
+      ;;
+  esac
+}
+
+print_grok_usage() { # full|compact|mini
+  [[ -z $gpct ]] && return
+  local gc label
+  if [[ $gavail == 0 ]]; then
+    gc=31
+    label="agotado"
+  else
+    gc=$(level_color "$gpct")
+    label="${gpct}%"
+  fi
+  sep
+  case $1 in
+    full)
+      put 90 "grok "
+      if [[ $gavail != 0 ]]; then
+        put "$gc" "$(bar "$gpct" 8) $label"
+      else
+        put "$gc" "$label"
+      fi
+      if [[ -n $greset_days ]]; then
+        if [[ $greset_days == 0 ]]; then put 90 " (hoy)"
+        elif [[ $greset_days == 1 ]]; then put 90 " (1d)"
+        else put 90 " ($greset_days d)"; fi
+      fi
+      ;;
+    compact)
+      put 90 "grok " && put "$gc" "$label"
+      [[ -n $greset_days && $greset_days != 0 ]] && put 90 " ${greset_days}d"
+      ;;
+    mini)
+      put 90 "g" && put "$gc" "$label"
       ;;
   esac
 }
@@ -272,6 +312,7 @@ usage_line() { # full|compact|mini [show_reset=1]
       [[ -n $runout ]] && put 31 " · agota el $runout"
       [[ -n $apct ]] && put 90 " · api " && put "$(level_color "$apct")" "$apct%"
       put 90 " · proy $proj"
+      print_grok_usage full
       [[ -n $sess ]] && sep && put 90 "sesión " && put 36 "$sess"
       ;;
     compact)
@@ -281,11 +322,13 @@ usage_line() { # full|compact|mini [show_reset=1]
       print_pace compact
       [[ -n $runout ]] && put 31 " → agota $runout"
       [[ -n $apct ]] && put 90 " api " && put "$(level_color "$apct")" "$apct%"
+      print_grok_usage compact
       [[ -n $sess ]] && sep && put 90 "ses " && put 36 "$sess"
       ;;
     mini)
       put 36 "$h5" && raw " " && put "$(level_color "$mpct")" "$mpct%"
       print_pace mini
+      print_grok_usage mini
       ;;
   esac
   if [[ -n $err ]]; then

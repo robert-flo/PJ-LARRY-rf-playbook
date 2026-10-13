@@ -39,6 +39,7 @@ call() {
 call GetCurrentPeriodUsage '{}' &
 call GetAggregatedUsageEvents "{\"startDate\":\"$h5\",\"endDate\":\"$now\"}" &
 call GetFilteredUsageEvents "{\"startDate\":\"$h24\",\"endDate\":\"$now\",\"page\":1,\"pageSize\":1000}" &
+call GetSandUsageStatus '{}' &
 wait
 
 for ep in GetCurrentPeriodUsage GetAggregatedUsageEvents GetFilteredUsageEvents; do
@@ -51,13 +52,20 @@ for ep in GetCurrentPeriodUsage GetAggregatedUsageEvents GetFilteredUsageEvents;
   esac
 done
 
+sand_ok=0
+[[ $(cat "$tmp/GetSandUsageStatus.code" 2>/dev/null) == 200 ]] && sand_ok=1
+
 jq -n \
   --slurpfile period "$tmp/GetCurrentPeriodUsage.json" \
   --slurpfile agg "$tmp/GetAggregatedUsageEvents.json" \
   --slurpfile ev "$tmp/GetFilteredUsageEvents.json" \
+  --slurpfile sand "$tmp/GetSandUsageStatus.json" \
+  --argjson sand_ok "$sand_ok" \
   --argjson now "$now" --argjson h5 "$h5" '
+  def iso_ms: if . == null or . == "" then null else (sub("\\.[0-9]+(?=Z$)"; "") | fromdateiso8601) * 1000 end;
   ($ev[0].usageEventsDisplay // []) as $events
   | ($events | map(.timestamp |= tonumber)) as $e
+  | (if $sand_ok == 1 then $sand[0] else null end) as $g
   | {
       updated: $now,
       h5_cents: ($agg[0].totalCostCents // 0),
@@ -71,7 +79,10 @@ jq -n \
       month_spend_cents: ($period[0].planUsage.totalSpend // 0),
       month_included_cents: ($period[0].planUsage.limit // 0),
       cycle_start: ($period[0].billingCycleStart // "0" | tonumber),
-      cycle_end: ($period[0].billingCycleEnd // "0" | tonumber)
+      cycle_end: ($period[0].billingCycleEnd // "0" | tonumber),
+      grok_pct: (if $g then ($g.usagePercent // 0 | floor) else null end),
+      grok_reset_ms: (if $g then ($g.nextResetTimestampUtc | iso_ms) else null end),
+      grok_available: (if $g then ($g.hasAvailableUsage // true) else null end)
     }' >"$tmp/out.json" || fail "respuesta inválida"
 
 mv "$tmp/out.json" "$cache"
