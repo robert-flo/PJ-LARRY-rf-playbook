@@ -19,7 +19,8 @@ Este repositorio es un vault de Obsidian y, a la vez, el guion que un agente (`c
 
 - Rama por defecto: `master` (nunca `main`).
 - Nunca commit directo a `master` (salvo el commit inicial): rama auxiliar → push → PR a `master` → rebase sobre el `master` más reciente → merge → borrar la rama local y remota.
-- Sin trailers `Co-authored-by` ni atribución a agentes. Si el entorno los inyecta en `git commit`, usar `git commit-tree "$(git write-tree)" -p HEAD -m "..."` + `git update-ref refs/heads/<rama> <sha>`.
+- Sin trailers `Co-authored-by` ni atribución a agentes. En `cursor-agent` está desactivado (`attribution` en `~/.config/cursor/cli-config.json`, Capítulo 2). Si otro entorno los inyecta en `git commit`, usar `git commit-tree "$(git write-tree)" -p HEAD -m "..."` + `git update-ref refs/heads/<rama> <sha>`. Revisar `git log -1 --format=%B` antes de cada push.
+- Remotos por SSH (`git@github.com:robert-flo/...`); `.gitmodules` mantiene HTTPS para que el vault se clone sin llave.
 - Las mismas reglas aplican a los forks `PJ-LARRY-fo-*` (rama `personal`).
 
 ## Fuentes y upstream

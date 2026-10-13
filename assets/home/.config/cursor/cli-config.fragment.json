@@ -1,0 +1,12 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "~/.config/cursor/statusline.sh",
+    "padding": 0,
+    "timeoutMs": 1500
+  },
+  "attribution": {
+    "attributeCommitsToAgent": false,
+    "attributePRsToAgent": false
+  }
+}
