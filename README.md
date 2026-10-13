@@ -50,7 +50,8 @@ PJ-LARRY-rf-playbook/
 │   ├── 02.7 - Capitulo 7 - Repos Privados para Siempre.md
 │   └── 02.8 - Capitulo 8 - Recuperacion ante Desastres.md
 ├── 03 - Configuracion/                                # ⚙️ Part III
-│   └── 03.9 - Capitulo 9 - Configurar, no Chatear.md
+│   ├── 03.9 - Capitulo 9 - Configurar, no Chatear.md
+│   └── 03.10 - Capitulo 10 - Proyectos, Roles y Referencias.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
