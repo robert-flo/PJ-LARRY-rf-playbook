@@ -91,7 +91,7 @@ if (existsSync(CURSOR_PROJECTS)) {
     if (!existsSync(transcripts)) continue;
     const cwd = workspacePath(projectDir, ws.name);
     // Test benches (canaries, hook bisects, the claude adapter) must not become Sura's memory.
-    if (cwd.startsWith(join(HOME, ".cache") + "/") || cwd.startsWith("/tmp/")) continue;
+    if ([join(HOME, ".cache"), "/tmp"].some(d => cwd === d || cwd.startsWith(d + "/"))) continue;
     const destDir = join(CLAUDE_PROJECTS, encodeCwd(cwd));
     for (const conv of readdirSync(transcripts, { withFileTypes: true })) {
       if (!conv.isDirectory()) continue;
