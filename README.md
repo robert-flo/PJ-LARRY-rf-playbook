@@ -37,7 +37,8 @@ PJ-LARRY-rf-playbook/
 ├── README.md                                          # 📖 Esta guía
 ├── AGENTS.md                                          # 🤖 Reglas para agentes (git, forks, harness)
 ├── 01 - Fundamentos/                                  # 🧭 Part I
-│   └── 01.0 - Paso 0 - Desde Cero con cursor-agent.md
+│   ├── 01.0 - Paso 0 - Desde Cero con cursor-agent.md
+│   └── 01.1 - Capitulo 1 - El Paradigma de la Terminal.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
