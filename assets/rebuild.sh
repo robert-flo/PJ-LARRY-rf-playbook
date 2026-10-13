@@ -5,8 +5,8 @@
 #   assets/rebuild.sh --check   report only, change nothing
 #   assets/rebuild.sh           apply (asks for sudo only to create /zt)
 #
-# Human-only steps (gh auth login, cursor-agent login, Cursor User Rules) are checked, never done.
-# Never invokes `claude`: on Omarchy that shim installs Claude Code through mise.
+# Human-only steps (gh auth login, cursor-agent login, Cursor User Rules, identity edits) are checked, never done.
+# Never invokes `claude`: on Omarchy that shim installs Claude Code through mise; step 8 replaces it with a guard.
 set -uo pipefail
 
 CHECK=0
@@ -101,6 +101,108 @@ elif [[ -d ~/Projects/Fabric ]]; then
     && ok "fabric $(~/.local/bin/fabric --version)" || bad "falló la compilación de Fabric"
 else bad "falta ~/Projects/Fabric (paso 5)"; fi
 todo "fabric --setup se hace en el último paso (patterns/strategies apuntando al fork)"
+
+NFOS=~/.claude/skills/nixfredOS
+nfos() { (cd "$NFOS" && bun "Tools/$1.ts" --config-root ~/.claude "${@:2}" >/dev/null) && ok "nixfredOS $1" || bad "nixfredOS $1 falló"; }
+same() { cmp -s "$1" "$2"; }
+put() { # src dst mode
+  if same "$1" "$2"; then ok "${2/#$HOME/\~}"
+  elif ((CHECK)); then todo "pendiente: instalar ${2/#$HOME/\~}"
+  else install -D -m "$3" "$1" "$2" && ok "${2/#$HOME/\~} instalado"; fi
+}
+
+step "8. Guardia de claude (Capítulo 5)"
+put "$HOME_ASSETS/.local/bin/claude" ~/.local/bin/claude 755
+
+step "9. nixfredOS Core en ~/.claude (Capítulo 5)"
+if [[ -f $NFOS/INSTALL.md ]]; then ok "skill nixfredOS"
+elif ((CHECK)); then todo "pendiente: copiar el submódulo a $NFOS"
+else
+  [[ -d ~/.claude ]] && tar -C ~ -czf ~/.claude.backup.$(date +%Y%m%d-%H%M%S).tgz .claude
+  mkdir -p ~/.claude/skills && cp -R "$VAULT/nixfredOS/nixfredOS" "$NFOS" && ok "skill nixfredOS copiada (snapshot previo en ~/.claude.backup.*.tgz)"
+fi
+if [[ -f ~/.claude/NIXFREDOS/NIXFREDOS_SYSTEM_PROMPT.md ]]; then ok "DeployCore"
+elif ((CHECK)); then todo "pendiente: DeployCore"
+else nfos DeployCore --apply; fi
+if [[ -f ~/.claude/CLAUDE.md ]]; then ok "CLAUDE.md"
+else run cp "$NFOS/install/CLAUDE.template.md" ~/.claude/CLAUDE.md; fi
+if jq -e '.env.NIXFREDOS_DIR' ~/.claude/settings.json >/dev/null 2>&1; then ok "InstallSettings"
+elif ((CHECK)); then todo "pendiente: InstallSettings"
+else nfos InstallSettings --apply; fi
+if [[ -L ~/.claude/NIXFREDOS/USER ]]; then ok "árbol USER enlazado (${XDG_CONFIG_HOME:-~/.config}/NIXFREDOS/USER)"
+elif ((CHECK)); then todo "pendiente: ScaffoldUser + LinkUser (o restaurar USER desde el repo privado, Cap. 8)"
+else nfos ScaffoldUser --apply && nfos LinkUser --apply
+  todo "identidad: editar NIXFREDOS_CONFIG.toml, DA_IDENTITY.md y PRINCIPAL_IDENTITY.md (nota 02.5) y volver a ejecutar"; fi
+if grep -q '^@NIXFREDOS/USER/DIGITAL_ASSISTANT/DA_IDENTITY.md' ~/.claude/CLAUDE.md 2>/dev/null; then ok "ActivateImports"
+elif ((CHECK)); then todo "pendiente: ActivateImports"
+else nfos ActivateImports --apply; fi
+if [[ -f ~/.claude/hooks/LoadContext.hook.ts ]]; then ok "InstallHooks"
+elif ((CHECK)); then todo "pendiente: InstallHooks"
+else nfos InstallHooks --apply; fi
+if [[ -d ~/.claude/agents ]] && systemctl --user is-enabled -q com.nixfredos.pulse.service 2>/dev/null; then ok "DeployComponents (agents, commands, pulse, worksweep, derivedsync, usage-aggregator)"
+elif ((CHECK)); then todo "pendiente: DeployComponents"
+else nfos DeployComponents --components agents,commands,pulse,worksweep,derivedsync,usage-aggregator --apply; fi
+if systemctl --user is-enabled -q com.nixfredos.interviewdue.timer 2>/dev/null; then ok "servicio interviewdue"
+else run bun ~/.claude/NIXFREDOS/TOOLS/Services.ts install --only interviewdue --yes; fi
+
+step "10. Memory engine (Capítulo 5)"
+if [[ -x ~/bin/mem ]]; then ok "memory-engine instalado"
+elif ((CHECK)); then todo "pendiente: memory-engine (install/memory-engine/install)"
+else (cd "$NFOS/install/memory-engine" && ./install >/dev/null) && ok "memory-engine instalado (su paso 'claude mcp add' falla a propósito)"; fi
+if [[ -f ~/.claude/memory.db ]] && DB=~/.claude/memory.db bun -e 'const {Database}=require("bun:sqlite");process.exit(new Database(process.env.DB,{readonly:true}).query("select 1 from pragma_table_info(\"sessions\") where name=\"git_branch\"").get()?0:1)'; then
+  ok "memory.db con el esquema de mem"
+elif ((CHECK)); then todo "pendiente: recrear memory.db con mem init (el instalador crea un esquema viejo)"
+else
+  [[ -f ~/.claude/memory.db ]] && mv ~/.claude/memory.db ~/.claude/memory.db.installer-schema.$(date +%Y%m%d-%H%M%S).bak
+  ~/bin/mem init >/dev/null && ok "memory.db recreada con mem init"
+fi
+if [[ $(readlink ~/.local/bin/mem) == "$HOME/bin/mem" ]]; then ok "mem en el PATH"
+else run ln -sfn ~/bin/mem ~/.local/bin/mem; fi
+if ((CHECK)); then
+  bun "$VAULT/assets/nixfredos-substitute.ts" --check >/dev/null 2>&1 && ok "placeholders de identidad" || todo "pendiente: bun assets/nixfredos-substitute.ts"
+else
+  bun "$VAULT/assets/nixfredos-substitute.ts" && ok "placeholders de identidad" || bad "quedan placeholders (¿falta la identidad en NIXFREDOS_CONFIG.toml?)"
+fi
+
+step "11. Adaptadores de Cursor (Capítulo 5)"
+for f in nixfredos-context.sh claude-hooks-gate.sh claude-plain2json.sh wrap-claude-hooks.sh cursor-transcripts-sync.sh cursor-transcripts-sync.ts; do
+  put "$HOME_ASSETS/.cursor/hooks/$f" ~/.cursor/hooks/"$f" 755
+done
+put "$HOME_ASSETS/.cursor/hooks.json" ~/.cursor/hooks.json 644
+put "$HOME_ASSETS/.cursor/mcp.json" ~/.cursor/mcp.json 644
+if ~/.cursor/hooks/wrap-claude-hooks.sh --check >/dev/null 2>&1; then ok "hooks de Claude envueltos (claude-plain2json)"
+else run ~/.cursor/hooks/wrap-claude-hooks.sh; fi
+for u in cursor-transcripts-sync.service cursor-transcripts-sync.timer; do
+  put "$HOME_ASSETS/.config/systemd/user/$u" ~/.config/systemd/user/"$u" 644
+done
+if systemctl --user is-enabled -q cursor-transcripts-sync.timer 2>/dev/null; then ok "timer cursor-transcripts-sync"
+elif ((CHECK)); then todo "pendiente: activar cursor-transcripts-sync.timer"
+else systemctl --user daemon-reload && systemctl --user enable --now cursor-transcripts-sync.timer && ok "timer cursor-transcripts-sync activo"; fi
+
+step "12. Extras opcionales (Capítulo 5)"
+VOICE=~/.local/share/piper/voices/es_MX-claude-high.onnx
+command -v espeak-ng >/dev/null && ok "espeak-ng" || run sudo pacman -S --needed --noconfirm espeak-ng
+command -v piper-tts >/dev/null && ok "piper-tts" || run yay -S --needed --noconfirm piper-tts-bin
+[[ -L /usr/local/bin/piper ]] && ok "/usr/local/bin/piper" || run sudo ln -sfn /usr/bin/piper-tts /usr/local/bin/piper
+if [[ -s $VOICE && -s $VOICE.json ]]; then ok "voz piper es_MX-claude-high"
+elif ((CHECK)); then todo "pendiente: descargar la voz es_MX-claude-high"
+else mkdir -p "${VOICE%/*}" && for x in "" .json; do
+  curl -fsSL -o "$VOICE$x" "https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_MX/claude/high/es_MX-claude-high.onnx$x"; done && ok "voz descargada"; fi
+if [[ -f ~/.claude/voice.json ]]; then ok "voice.json"
+elif ((CHECK)); then todo "pendiente: voice.json (piper) y nixfredos-voice on"
+else jq -n --arg m "$VOICE" '{enabled:true, engine:"auto", elevenlabs_voice_id:"", elevenlabs_model:"eleven_turbo_v2_5", say_voice:"", piper_model:$m, volume:1.0, speaker:"", listen:false, wake_word:"", mic:""}' >~/.claude/voice.json \
+  && systemctl --user restart com.nixfredos.pulse.service && ok "voz activada (nixfredos-voice off para silenciar)"; fi
+IV=2.1.0; ID=~/.local/share/interceptor/$IV
+if [[ -x $ID/dist/interceptor && $(readlink ~/.local/bin/interceptor) == "$ID/dist/interceptor" ]]; then ok "interceptor $IV (CLI + native host)"
+elif ((CHECK)); then todo "pendiente: Interceptor $IV (tarball Browser linux-x64)"
+else
+  t=$(mktemp -d) && gh release download "v$IV" -R Hacker-Valley-Media/Interceptor -D "$t" -p "Interceptor-Browser-$IV-linux-x64.tar.gz" -p SHA256SUMS \
+    && (cd "$t" && grep "Browser-$IV-linux-x64" SHA256SUMS | sha256sum -c --quiet -) \
+    && mkdir -p "$ID" && tar -xzf "$t/Interceptor-Browser-$IV-linux-x64.tar.gz" -C "$ID" --strip-components=1 \
+    && bash "$ID/scripts/install.sh" --browser-only --chrome --skip-extension </dev/null >/dev/null \
+    && ln -sfn "$ID/dist/interceptor" ~/.local/bin/interceptor && ok "interceptor $IV instalado" || bad "falló Interceptor"
+fi
+todo "humano: codex login · extensión Interceptor en un perfil de prueba de Chrome · CLOUDFLARE_API_TOKEN en ~/.claude/.env"
 
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi

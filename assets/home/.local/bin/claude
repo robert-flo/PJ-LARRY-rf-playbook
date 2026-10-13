@@ -1,0 +1,11 @@
+#!/bin/bash
+# PJ-LARRY guard: replaces Omarchy's mise wrapper, which installs Claude Code on first call.
+# This playbook's harness is cursor-agent; nixfredOS tools that shell out to `claude` must fail, not install.
+# Each refused call is logged with its caller, so degraded nixfredOS features can be traced.
+# Restore Omarchy's wrapper with: omarchy-mise-install claude
+log="${XDG_STATE_HOME:-$HOME/.local/state}/claude-guard.log"
+mkdir -p "${log%/*}"
+caller=$(tr '\0' ' ' </proc/$PPID/cmdline 2>/dev/null | cut -c1-300)
+printf '%s\targs=%s\tcaller=%s\n' "$(date -Is)" "$(printf '%s ' "$@" | tr '\n' ' ' | cut -c1-160)" "$caller" >>"$log"
+echo "claude: disabled on this machine (harness is cursor-agent; see PJ-LARRY-rf-playbook 10.4)" >&2
+exit 127

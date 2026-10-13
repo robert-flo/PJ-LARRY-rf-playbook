@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "nixfredos-memory": {
+      "type": "stdio",
+      "command": "bash",
+      "args": ["-c", "exec bun run \"$HOME/.claude/hooks/mem-mcp-server.ts\""]
+    }
+  }
+}
