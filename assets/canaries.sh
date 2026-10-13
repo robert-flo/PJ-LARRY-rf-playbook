@@ -141,6 +141,9 @@ if ((${#only[@]} == 0)) || [[ " ${only[*]} " == *" full-access "* ]]; then
   rm -rf "$fa_"
 fi
 
+# Chapter 31: version-sensitive library questions go through the context7 MCP, and the answer says so.
+case_ context7 'Context7' '' '¿Cómo se configura Tailwind CSS v4 en un proyecto con Vite? Dame los pasos mínimos.'
+
 printf 'resultado: %d ✓ · %d ✗%s\n' "$pass" "$fail" "$( ((fail)) && printf ' (%s)' "${failed[*]}")" | tee -a "$log"
 ((${#only[@]})) || jq -n --arg model "$model" --arg date "$(date -Is)" --argjson pass "$pass" --argjson fail "$fail" \
   --arg failed "${failed[*]}" '{date:$date, model:$model, pass:$pass, fail:$fail, failed:($failed|split(" ")|map(select(.!="")))}' >"$state/last.json"
