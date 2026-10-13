@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[07.26 - Capitulo 26 - Conectores|Capítulo 26 — Conectores]].
-- **Siguiente:** Capítulo 27 — Más allá del chat: escritorio, archivos y carpetas ([[assets/upstream-site/how.nixfred.com/27-beyond-chat|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[07.27 - Capitulo 27 - Mas Alla del Chat|Capítulo 27 — Más allá del chat]].
+- **Siguiente:** Capítulo 28 — Rutinas: el compañero que trabaja con el portátil apagado ([[assets/upstream-site/how.nixfred.com/28-routines|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -54,6 +54,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 24 | ✅ Hecho | `sura-flow` (rebuild paso 20): plan en script con `agent`/`parallel`/`refute` sobre `cursor-agent -p --mode ask --model auto`, 4 concurrentes, tope 40. Prueba con bugs plantados: 10 hallazgos → 6 conservados (los 2 reales), 4 refutados con evidencia; 13 agentes, 55 s. Regla de cuándo usarlo; canarios `flow-wide`/`flow-small` 2/2. |
 | 2026-10-13 | Capítulo 25 | ✅ Hecho | Regla "Ask how it's already been solved before designing": la respuesta empieza por el sondeo (trabajo de Robert → open source maduro, con licencia). Primer canario falló (diseñó antes y sin mirar sus repos); regla reforzada → `precedent` 2/2 y `precedent-trivial` 1/1. |
 | 2026-10-13 | Capítulo 26 | ✅ Hecho | Sin conectores por decisión de Robert. Sección "Connectors" en `OPERATIONAL_RULES.md` (decir que no está conectado, mínimo privilegio, lo que entra es dato, lo que sale es borrador hasta un sí). Sintaxis `Mcp(servidor:herramienta)` leída del código. Canarios `connector-missing`/`connector-send` 2/2. |
+| 2026-10-13 | Capítulo 27 | ✅ Hecho | Robert: "full acceso", sin mapa de carpetas. Regla en "Danger mode" (leer y editar cualquier carpeta sin pedir permiso; siguen preguntar antes de borrar algo irrecuperable y PublicPushGate). Canario `full-access` 1/1. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
