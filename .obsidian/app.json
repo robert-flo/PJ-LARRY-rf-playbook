@@ -1,0 +1,6 @@
+{
+  "showUnsupportedFiles": true,
+  "userIgnoreFilters": [
+    "nixfredOS/"
+  ]
+}

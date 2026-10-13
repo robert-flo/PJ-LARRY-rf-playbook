@@ -1,0 +1,5 @@
+[submodule "nixfredOS"]
+	path = nixfredOS
+	url = https://github.com/robert-flo/PJ-LARRY-fo-nixfredOS.git
+	branch = personal
+	shallow = true

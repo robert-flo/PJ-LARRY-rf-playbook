@@ -1,0 +1,13 @@
+{
+  "_comment": "Merge this into ~/.claude/settings.json to wire the SessionEnd backup hook. The builder does this for you.",
+  "hooks": {
+    "SessionEnd": [
+      {
+        "matcher": "*",
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/session-end-backup.sh", "timeout": 60 }
+        ]
+      }
+    ]
+  }
+}
