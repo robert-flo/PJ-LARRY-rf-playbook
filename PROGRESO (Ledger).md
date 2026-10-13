@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[01.3 - Capitulo 3 - Hablar en Opciones|Capítulo 3 — Hablar en Opciones]] (fin de la Part I).
-- **Siguiente:** Capítulo 4 — The Larry Stack ([[assets/upstream-site/how.nixfred.com/04-larry-stack|original]]), Part II: instalación de nixfredOS.
+- **Último completado:** [[02.4 - Capitulo 4 - El Stack de Larry|Capítulo 4 — El Stack de Larry]] (inicio de la Part II).
+- **Siguiente:** Capítulo 5 — Bootstrap → nixfredOS ([[assets/upstream-site/how.nixfred.com/05-bootstrap|original]]): instalar el Core desde el submódulo con `--config-root ~/.claude`.
 
 ## Registro
 
@@ -31,8 +31,11 @@ date: 2026-10-12
 | 2026-10-12 | Capítulo 1 | ✅ Hecho | Modelo mental (sin instalación). Nivel del humano: avanzado. Línea base del harness en [[01.1 - Capitulo 1 - El Paradigma de la Terminal\|la nota]]. |
 | 2026-10-12 | Capítulo 2 | ✅ Hecho | `AGENTS.md` cargado por `cursor-agent` (verificado). Barra de estado en `~/.config/cursor/statusline.sh`. Atribución de commits/PRs desactivada. Sin `/init` ni `/voice` en el CLI. |
 | 2026-10-12 | Capítulo 3 | ✅ Hecho | Hábito de opciones y nivel avanzado como User Rules de Cursor (globales; `~/.cursor/rules` no lo es). Verificado desde `/tmp`. |
+| 2026-10-12 | Capítulo 4 | ✅ Hecho | Forks del stack clonados en `~/Projects`. Datos de nixfredOS en `~/.claude`. Fabric CLI v1.4.518 compilado desde el fork. Claude Code instalado por accidente vía el shim de Omarchy y revertido. |
 
 ## Pendientes abiertos
 
 - Tailscale: instalar en el Capítulo 6.
+- Ollama (`nomic-embed-text`, extractor de memoria): decidir en el Capítulo 11.
+- Fabric: `fabric --setup` con patterns y strategies apuntando al fork, en el último paso.
 - Integraciones de los forks al estilo `PJ-NIRI-fo-*` (workflow `sync-personal-fork`, agentes PM/RV/WK, `AGENTS.md`, `docs/agents/`): último paso del playbook.

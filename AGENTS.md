@@ -34,6 +34,8 @@ Este repositorio es un vault de Obsidian y, a la vez, el guion que un agente (`c
 ## Harness
 
 - El harness es `cursor-agent`, no Claude Code. Donde el sitio dice `claude`, `~/.claude`, `CLAUDE.md` o hooks de Claude, usa la traducción de `10 - Referencias/10.1`. Si una capa no tiene equivalente, se documenta como "no aplica" con el motivo; no se instala inerte.
+- **No ejecutar `claude`** (ni con `--version`): en Omarchy, `~/.local/bin/claude` es un shim que instala Claude Code con `mise use -g` antes de lanzarlo (Capítulo 4). Lo mismo con los demás shims de agentes de Omarchy.
+- nixfredOS usa `~/.claude` como carpeta de datos aunque el harness sea Cursor (decisión del Capítulo 4). `DetectEnv` reporta `claude-code` por error en esta máquina: pasar `--config-root ~/.claude` explícito y seguir la rama "otro harness" de `nixfredOS/nixfredOS/INSTALL.md`.
 - Memoria e identidad del asistente van solo a repos **PRIVADOS** (verificar `gh repo view <repo> --json visibility` antes del primer push).
 
 ## Formato de las notas
