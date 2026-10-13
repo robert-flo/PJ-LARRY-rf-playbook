@@ -90,7 +90,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[03.11 - Capitulo 11 - Memoria Viva|11 — CLAUDE.md, context.md & Memory → Memoria viva]] ✅: adaptador `claude` → `cursor-agent`, extracción LMF4, búsqueda semántica con Ollama · [[assets/upstream-site/how.nixfred.com/11-memory-files|original]]
 - [[03.12 - Capitulo 12 - Prompts, Plantillas y Calidad|12 — Prompt Libraries, Templates & Quality Bars]] ✅: `/check`, `/pr`, `/seguir`, skill `cerrar-capitulo` · [[assets/upstream-site/how.nixfred.com/12-prompt-library|original]]
 - [[03.13 - Capitulo 13 - Disciplina de Contexto|13 — Context Discipline]] ✅: `/context`, `/summarize` + `/relevo`, `/clear`, `/rewind`, aviso al 60 % · [[assets/upstream-site/how.nixfred.com/13-context|original]]
-- 14 — TELOS · [[assets/upstream-site/how.nixfred.com/14-telos|original]] · [[assets/upstream-site/how.nixfred.com/telos-questions|preguntas]]
+- [[03.14 - Capitulo 14 - TELOS|14 — TELOS]] ✅: entrevista con menús, `TELOS.md` privado, filtro de contexto propio, lectura bajo demanda · [[assets/upstream-site/how.nixfred.com/14-telos|original]] · [[assets/upstream-site/how.nixfred.com/telos-questions|preguntas]]
 
 ### 4️⃣ Uso Diario (Part IV)
 - 15 — Prompting Is a Skill · [[assets/upstream-site/how.nixfred.com/15-prompting|original]]
