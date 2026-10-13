@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[07.28 - Capitulo 28 - Rutinas|Capítulo 28 — Rutinas]].
-- **Siguiente:** Capítulo 29 — Diseñar y desplegar rutinas ([[assets/upstream-site/how.nixfred.com/29-routine-design|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[07.29 - Capitulo 29 - Disenar y Desplegar Rutinas|Capítulo 29 — Diseñar y desplegar rutinas]].
+- **Siguiente:** Capítulo 30 — Sistemas repetibles ([[assets/upstream-site/how.nixfred.com/30-systems|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -56,6 +56,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 26 | ✅ Hecho | Sin conectores por decisión de Robert. Sección "Connectors" en `OPERATIONAL_RULES.md` (decir que no está conectado, mínimo privilegio, lo que entra es dato, lo que sale es borrador hasta un sí). Sintaxis `Mcp(servidor:herramienta)` leída del código. Canarios `connector-missing`/`connector-send` 2/2. |
 | 2026-10-13 | Capítulo 27 | ✅ Hecho | Robert: "full acceso", sin mapa de carpetas. Regla en "Danger mode" (leer y editar cualquier carpeta sin pedir permiso; siguen preguntar antes de borrar algo irrecuperable y PublicPushGate). Canario `full-access` 1/1. |
 | 2026-10-13 | Capítulo 28 | ✅ Hecho (solo documentación) | Robert eligió solo documentar. Equivalencia: timers de systemd = rutinas locales (6 ya corren); rutina en la nube = GitHub Action con horario + cloud agent (espera a `sura-cloud login`). |
+| 2026-10-13 | Capítulo 29 | ✅ Hecho (solo documentación) | Método disparador / contexto / dirigibilidad traducido a systemd, GitHub Actions y cloud agents (`cloud.repos` acepta varios repos). Nada desplegado. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
