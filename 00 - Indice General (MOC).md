@@ -80,7 +80,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 ### 2️⃣ Instalación del Stack (Part II)
 - [[02.4 - Capitulo 4 - El Stack de Larry|04 — The Larry Stack: Repos y Orden de Instalación]] ✅: los cuatro sistemas traducidos, forks en `~/Projects`, Fabric CLI · [[assets/upstream-site/how.nixfred.com/04-larry-stack|original]]
 - [[02.5 - Capitulo 5 - nixfredOS en cursor-agent|05 — The One-Command Bootstrap → nixfredOS en cursor-agent]] ✅: Sura / Robert, constitución por hook, hooks de Claude adaptados, memoria, voz, Interceptor · [[assets/upstream-site/how.nixfred.com/05-bootstrap|original]] · [[assets/upstream-site/nixfredos.com/install|nixfredOS install]]
-- 06 — Tailscale & the Multi-Host Mesh · [[assets/upstream-site/how.nixfred.com/06-tailscale|original]]
+- [[02.6 - Capitulo 6 - Tailscale|06 — Tailscale y la Malla Multi-Host]] ✅: PC `her` en la tailnet, MagicDNS, Tailscale SSH · [[assets/upstream-site/how.nixfred.com/06-tailscale|original]]
 - 07 — Your Forever Private Repo (and gup) · [[assets/upstream-site/how.nixfred.com/07-forever-repo|original]]
 - 08 — Disaster Recovery & Continuity · [[assets/upstream-site/how.nixfred.com/08-recovery|original]]
 

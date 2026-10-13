@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[02.5 - Capitulo 5 - nixfredOS en cursor-agent|Capítulo 5 — nixfredOS en cursor-agent]].
-- **Siguiente:** Capítulo 6 — Tailscale y la malla multi-host ([[assets/upstream-site/how.nixfred.com/06-tailscale|original]]).
+- **Último completado:** [[02.6 - Capitulo 6 - Tailscale|Capítulo 6 — Tailscale]].
+- **Siguiente:** Capítulo 7 — Tu repo privado para siempre ([[assets/upstream-site/how.nixfred.com/07-forever-repo|original]]).
 
 ## Registro
 
@@ -33,11 +33,12 @@ date: 2026-10-12
 | 2026-10-12 | Capítulo 3 | ✅ Hecho | Hábito de opciones y nivel avanzado como User Rules de Cursor (globales; `~/.cursor/rules` no lo es). Verificado desde `/tmp`. |
 | 2026-10-12 | Capítulo 4 | ✅ Hecho | Forks del stack clonados en `~/Projects`. Datos de nixfredOS en `~/.claude`. Fabric CLI v1.4.518 compilado desde el fork. Claude Code instalado por accidente vía el shim de Omarchy y revertido. |
 | 2026-10-12 | Capítulo 5 | ✅ Hecho | nixfredOS Core + componentes desde el submódulo; asistente **Sura**, principal **Robert**. Constitución por hook `sessionStart`; hooks de Claude funcionando en `cursor-agent` (gate de `beforeSubmitPrompt`, envoltura a JSON, límite de 10.000 caracteres). Memoria: `memory.db` con 40 sesiones, MCP `nixfredos-memory`, sync de transcripts de Cursor. Voz piper en español, Interceptor 2.1.0. Guardia en lugar del shim `claude`. Segmento de nixfredOS en la barra de estado. `rebuild.sh` pasos 8–12. |
+| 2026-10-12 | Capítulo 6 | ✅ Hecho | `omarchy-install-service-tailscale`; PC `her` (`100.87.210.6`) en `tail74414e.ts.net`, MagicDNS, Tailscale SSH (sin `sshd`), operador, Taildrop y widget. Puertos revisados antes de unirse. `rebuild.sh` paso 13. Pendiente: probar SSH desde otro nodo. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
 
-- Tailscale: instalar en el Capítulo 6.
+- Tailscale: probar Tailscale SSH desde otra máquina cuando se una; el humano borra en la consola los dispositivos viejos (`omarchy`, `omarchy-1`, `pc`, teléfono).
 - Pasos del humano del Capítulo 5: `codex login`; extensión de Interceptor en un perfil de prueba de Chrome + `INTERCEPTOR_TEST_CONTEXT_ID`; `CLOUDFLARE_API_TOKEN` en `~/.claude/.env`.
 - Capítulo 7: repo privado `sura-brain` y remoto privado para `~/.claude/conversations-backup` (verificar visibilidad antes del primer push).
 - Renombrar el usuario Linux `sura` y los playbooks de niri: tarea del humano.

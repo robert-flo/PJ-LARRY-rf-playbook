@@ -5,7 +5,7 @@
 #   assets/rebuild.sh --check   report only, change nothing
 #   assets/rebuild.sh           apply (asks for sudo only to create /zt)
 #
-# Human-only steps (gh auth login, cursor-agent login, Cursor User Rules, identity edits) are checked, never done.
+# Human-only steps (gh auth login, cursor-agent login, Cursor User Rules, identity edits, Tailscale login) are checked, never done.
 # Never invokes `claude`: on Omarchy that shim installs Claude Code through mise; step 8 replaces it with a guard.
 set -uo pipefail
 
@@ -205,6 +205,22 @@ else
     && ln -sfn "$ID/dist/interceptor" ~/.local/bin/interceptor && ok "interceptor $IV instalado" || bad "falló Interceptor"
 fi
 todo "humano: codex login · extensión Interceptor en un perfil de prueba de Chrome · CLOUDFLARE_API_TOKEN en ~/.claude/.env"
+
+step "13. Tailscale (Capítulo 6)"
+ts_state=$(tailscale status --json 2>/dev/null | jq -r .BackendState)
+if [[ $ts_state == Running ]]; then ok "tailscale conectado como $(tailscale status --json | jq -r '.Self.DNSName | rtrimstr(".")')"
+elif ((CHECK)); then todo "pendiente: omarchy-install-service-tailscale (abre una URL de login: humano)"
+else omarchy-install-service-tailscale && ts_state=Running || bad "falló omarchy-install-service-tailscale"; fi
+if [[ $ts_state == Running ]]; then
+  prefs=$(tailscale debug prefs 2>/dev/null)
+  [[ $(jq -r .OperatorUser <<<"$prefs") == "$USER" ]] && ok "operador $USER" || run sudo tailscale set --operator="$USER"
+  [[ $(jq -r .RunSSH <<<"$prefs") == true ]] && ok "Tailscale SSH" || run tailscale set --ssh
+  [[ $(jq -r .CorpDNS <<<"$prefs") == true ]] && ok "MagicDNS (accept-dns)" || run tailscale set --accept-dns=true
+fi
+systemctl --user is-enabled --quiet omarchy-tailscale-receive.service 2>/dev/null && ok "Taildrop → ~/Downloads" \
+  || run systemctl --user enable --now omarchy-tailscale-receive.service
+omarchy plugin list 2>/dev/null | grep -q '^omarchy.tailscale *enabled' && ok "widget de Tailscale en la barra" \
+  || run omarchy-plugin-enable omarchy.tailscale
 
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi
