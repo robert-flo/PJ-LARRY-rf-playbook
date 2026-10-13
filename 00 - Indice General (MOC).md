@@ -56,6 +56,7 @@ flowchart TD
         S["10.1 Equivalencias CC → cursor-agent"]
         T["10.2 Repos y Forks"]
         U["10.3 Archivo del Sitio"]
+        V["10.4 PC Nueva"]
     end
 
     Q -.-> R
@@ -137,6 +138,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[10.1 - Equivalencias Claude Code a cursor-agent|10.1 — Equivalencias Claude Code → cursor-agent]]: traducción de comandos, archivos y capas; qué no aplica y por qué.
 - [[10.2 - Repositorios Upstream y Forks|10.2 — Repositorios Upstream y Forks]]: los 10 forks `PJ-LARRY-fo-*`, sus commits base y cómo clonarlos.
 - [[10.3 - Archivo del Sitio how.nixfred.com|10.3 — Archivo del Sitio]]: copia del sitio y de nixfredos.com, y cómo regenerarla.
+- [[10.4 - Reconstruir en una PC Nueva|10.4 — Reconstruir en una PC Nueva]]: pasos del humano, `assets/rebuild.sh`, decisiones ya tomadas y trampas conocidas.
 - [[PROGRESO (Ledger)|📒 PROGRESO (Ledger)]]: dónde vamos.
 
 ### 🏁 Último paso
