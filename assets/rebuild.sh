@@ -102,7 +102,7 @@ elif [[ -d ~/Projects/Fabric ]]; then
   (cd ~/Projects/Fabric && mise x go@1.27.2 -- go build -trimpath -o ~/.local/bin/fabric ./cmd/fabric) \
     && ok "fabric $(~/.local/bin/fabric --version)" || bad "falló la compilación de Fabric"
 else bad "falta ~/Projects/Fabric (paso 5)"; fi
-todo "fabric --setup se hace en el último paso (patterns/strategies apuntando al fork)"
+todo "patterns y strategies desde el fork: paso 25"
 
 NFOS=~/.claude/skills/nixfredOS
 nfos() { (cd "$NFOS" && bun "Tools/$1.ts" --config-root ~/.claude "${@:2}" >/dev/null) && ok "nixfredOS $1" || bad "nixfredOS $1 falló"; }
@@ -339,6 +339,27 @@ else todo "falta ~/.claude/agents/critic.md: restaurar sura-brain (paso 14)"; fi
 step "24. Diario y /destilar (Capítulo 33)"
 if [[ -f ~/.claude/commands/destilar.md ]]; then ok "/destilar (llega con sura-brain)"
 else todo "falta ~/.claude/commands/destilar.md: restaurar sura-brain (paso 14)"; fi
+
+step "25. Fabric: patterns y strategies desde el fork (último paso)"
+FAB_ENV=~/.config/fabric/.env
+FAB_URL="https://github.com/$GH_USER/PJ-LARRY-fo-Fabric.git"
+fab_set() { # key value
+  if grep -qx "$1=$2" "$FAB_ENV" 2>/dev/null; then ok "$1 → fork"
+  elif ((CHECK)); then todo "pendiente: $1=$2 en $FAB_ENV"
+  else mkdir -p "${FAB_ENV%/*}"; touch "$FAB_ENV"; chmod 600 "$FAB_ENV"; sed -i "/^$1=/d" "$FAB_ENV"; echo "$1=$2" >>"$FAB_ENV"; ok "$1 → fork"; fi
+}
+fab_set PATTERNS_LOADER_GIT_REPO_URL "$FAB_URL"
+fab_set PATTERNS_LOADER_GIT_REPO_PATTERNS_FOLDER data/patterns
+fab_set PROMPT_STRATEGIES_GIT_REPO_URL "$FAB_URL"
+fab_set PROMPT_STRATEGIES_GIT_REPO_STRATEGIES_FOLDER data/strategies
+if [[ -s ~/.config/fabric/unique_patterns.txt ]]; then ok "patterns: $(wc -l <~/.config/fabric/unique_patterns.txt)"
+else run fabric -U; fi
+# `fabric --setup` en primera ejecución ignora la URL de strategies del .env y baja las del upstream: se copian del fork.
+if compgen -G ~/.config/fabric/strategies/'*.json' >/dev/null; then ok "strategies: $(ls ~/.config/fabric/strategies/*.json | wc -l)"
+elif ((CHECK)); then todo "pendiente: strategies desde el fork"
+else t=$(mktemp -d); git clone -q --depth=1 --filter=blob:none --sparse "$FAB_URL" "$t/f" && git -C "$t/f" sparse-checkout set data/strategies \
+  && mkdir -p ~/.config/fabric/strategies && cp "$t/f/data/strategies/"* ~/.config/fabric/strategies/ && ok "strategies desde el fork" || bad "no se pudieron copiar las strategies"; rm -rf "$t"; fi
+todo "proveedor y modelo de Fabric (clave de API): paso del humano con fabric --setup"
 
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi

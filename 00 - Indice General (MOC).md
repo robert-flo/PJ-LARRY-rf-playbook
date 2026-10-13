@@ -61,7 +61,7 @@ flowchart TD
     end
 
     Q -.-> R
-    Q --> Z["Último paso: integraciones de los forks PJ-LARRY-fo-*"]
+    Q --> Z["Último paso: integraciones de los forks PJ-LARRY-fo-* ✅"]
 
     classDef default fill:#1e1e2e,stroke:#cba6f7,stroke-width:2px,color:#cdd6f4;
 ```
@@ -144,7 +144,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[PROGRESO (Ledger)|📒 PROGRESO (Ledger)]]: dónde vamos.
 
 ### 🏁 Último paso
-- Integraciones de los forks `PJ-LARRY-fo-*` al estilo `PJ-NIRI-fo-*`: workflow `sync-personal-fork`, agentes PM/RV/WK en `.agents/agents`, `AGENTS.md` y `docs/agents/`.
+- [[08.37 - Paso Final - Forks y Fabric|Integraciones de los forks y Fabric]] ✅: sync ADR 0024, `AGENTS.md` + `docs/agents/`, subagentes WK/RV de `cursor-agent` (Sura de PM) y Fabric desde el fork.
 
 ---
 
