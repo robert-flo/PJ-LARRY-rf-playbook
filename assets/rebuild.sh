@@ -46,8 +46,8 @@ for f in statusline.sh statusline-usage.sh statusline-nixfredos.sh; do
 done
 cfg="$CURSOR_CFG/cli-config.json"
 frag="$HOME_ASSETS/.config/cursor/cli-config.fragment.json"
-if [[ -f $cfg ]] && jq -e --slurpfile f "$frag" '(.statusLine == $f[0].statusLine) and (.attribution == $f[0].attribution)' "$cfg" >/dev/null; then
-  ok "cli-config.json (statusLine, attribution)"
+if [[ -f $cfg ]] && jq -e --slurpfile f "$frag" '. as $c | $f[0] | to_entries | all($c[.key] == .value)' "$cfg" >/dev/null; then
+  ok "cli-config.json ($(jq -r 'keys | join(", ")' "$frag"))"
 elif ((CHECK)); then todo "pendiente: fusionar $frag en $cfg"
 else
   if [[ -f $cfg ]]; then cp -a "$cfg" "$cfg.bak-$(date +%Y%m%d-%H%M%S)" || { bad "backup de $cfg falló"; exit 1; }

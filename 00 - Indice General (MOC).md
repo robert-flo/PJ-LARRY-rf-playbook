@@ -89,7 +89,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[03.10 - Capitulo 10 - Proyectos, Roles y Referencias|10 — Projects, Roles & Reference Material]] ✅: todo en `~/Projects`, `PROJECTS.md` con alias y privacidad · [[assets/upstream-site/how.nixfred.com/10-projects|original]]
 - [[03.11 - Capitulo 11 - Memoria Viva|11 — CLAUDE.md, context.md & Memory → Memoria viva]] ✅: adaptador `claude` → `cursor-agent`, extracción LMF4, búsqueda semántica con Ollama · [[assets/upstream-site/how.nixfred.com/11-memory-files|original]]
 - [[03.12 - Capitulo 12 - Prompts, Plantillas y Calidad|12 — Prompt Libraries, Templates & Quality Bars]] ✅: `/check`, `/pr`, `/seguir`, skill `cerrar-capitulo` · [[assets/upstream-site/how.nixfred.com/12-prompt-library|original]]
-- 13 — Context Discipline · [[assets/upstream-site/how.nixfred.com/13-context|original]]
+- [[03.13 - Capitulo 13 - Disciplina de Contexto|13 — Context Discipline]] ✅: `/context`, `/summarize` + `/relevo`, `/clear`, `/rewind`, aviso al 60 % · [[assets/upstream-site/how.nixfred.com/13-context|original]]
 - 14 — TELOS · [[assets/upstream-site/how.nixfred.com/14-telos|original]] · [[assets/upstream-site/how.nixfred.com/telos-questions|preguntas]]
 
 ### 4️⃣ Uso Diario (Part IV)
