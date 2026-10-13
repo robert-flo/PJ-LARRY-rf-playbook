@@ -11,6 +11,8 @@ Este repositorio es un vault de Obsidian y, a la vez, el guion que un agente (`c
 5. Si el capítulo cambió la máquina (paquetes, configuración, clones, decisiones, trampas), actualiza `10 - Referencias/10.4 - Reconstruir en una PC Nueva.md` y `assets/rebuild.sh` (idempotente, con `--check`), y copia los archivos de usuario versionables a `assets/home/`. Comprueba `assets/rebuild.sh --check`.
 6. Registra el capítulo en `PROGRESO (Ledger).md` y pregunta antes de pasar al siguiente. Un capítulo a la vez.
 
+Para cerrar un capítulo (pasos 4–6) usa la skill `.claude/skills/cerrar-capitulo` (plantilla incluida); para retomar, `/seguir`. Globales: `/check` (lista de calidad) y `/pr` (flujo de Git), en `~/.claude/commands/`.
+
 ## El humano
 
 - Nivel en la terminal: **avanzado** (acordado en el Capítulo 1). No explicar cada comando ni pedir permiso en pasos rutinarios; detenerse solo en lo irreversible (borrar datos, reescribir historia publicada, cambios de visibilidad, gastos) y en las decisiones que solo él puede tomar.
