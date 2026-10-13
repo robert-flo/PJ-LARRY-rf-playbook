@@ -1,0 +1,23 @@
+# sura-brain: full backup of ~/.claude, secrets included (decision of playbook Chapter 7).
+# Only what is reproducible, duplicated in another private repo, or transient stays out.
+
+# Reproducible from the nixfredOS submodule; some binaries exceed GitHub's 100 MB limit
+node_modules/
+
+# Backed up by memory-backup into sura-conversations (avoids committing a binary DB twice)
+memory.db
+memory.db-*
+memory.db.*
+projects/
+conversations-backup/
+
+# Transient
+*.log
+*.sock
+*.pid
+.DS_Store
+
+# Interceptor verification captures — never commit (name-anchored; capture format varies)
+interceptor-screenshot-*
+interceptor-capture-*
+interceptor-macos-screenshot-*

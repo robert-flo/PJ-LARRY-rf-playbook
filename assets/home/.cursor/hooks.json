@@ -2,13 +2,22 @@
   "version": 1,
   "hooks": {
     "sessionStart": [
-      { "command": "./hooks/nixfredos-context.sh" }
+      {
+        "command": "./hooks/nixfredos-context.sh"
+      }
     ],
     "beforeSubmitPrompt": [
-      { "command": "./hooks/claude-hooks-gate.sh" }
+      {
+        "command": "./hooks/claude-hooks-gate.sh"
+      }
     ],
     "sessionEnd": [
-      { "command": "./hooks/cursor-transcripts-sync.sh" }
+      {
+        "command": "./hooks/brain-backup.sh"
+      },
+      {
+        "command": "./hooks/cursor-transcripts-sync.sh"
+      }
     ]
   }
 }

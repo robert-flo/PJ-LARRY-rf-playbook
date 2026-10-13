@@ -24,6 +24,7 @@ Este repositorio es un vault de Obsidian y, a la vez, el guion que un agente (`c
 - Sin trailers `Co-authored-by` ni atribución a agentes. En `cursor-agent` está desactivado (`attribution` en `~/.config/cursor/cli-config.json`, Capítulo 2). Si otro entorno los inyecta en `git commit`, usar `git commit-tree "$(git write-tree)" -p HEAD -m "..."` + `git update-ref refs/heads/<rama> <sha>`. Revisar `git log -1 --format=%B` antes de cada push.
 - Remotos por SSH (`git@github.com:robert-flo/...`); `.gitmodules` mantiene HTTPS para que el vault se clone sin llave.
 - Las mismas reglas aplican a los forks `PJ-LARRY-fo-*` (rama `personal`).
+- **Excepción (Capítulo 7):** los repos privados de backup `sura-brain`, `sura-brain-user` y `sura-conversations` reciben commits automáticos directos a `master` (`brain-backup.sh`, `memory-backup`, `gup`). `sura-home` (dotbare en `~/.cfg`) sigue el flujo normal de rama + PR. `gup` se niega a commitear en `master` en cualquier otro repo.
 
 ## Fuentes y upstream
 

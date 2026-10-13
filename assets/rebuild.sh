@@ -5,7 +5,7 @@
 #   assets/rebuild.sh --check   report only, change nothing
 #   assets/rebuild.sh           apply (asks for sudo only to create /zt)
 #
-# Human-only steps (gh auth login, cursor-agent login, Cursor User Rules, identity edits, Tailscale login) are checked, never done.
+# Human-only steps (gh auth login, cursor-agent login, Cursor User Rules, identity edits, Tailscale login, Chapter 8 restores) are checked, never done.
 # Never invokes `claude`: on Omarchy that shim installs Claude Code through mise; step 8 replaces it with a guard.
 set -uo pipefail
 
@@ -221,6 +221,32 @@ systemctl --user is-enabled --quiet omarchy-tailscale-receive.service 2>/dev/nul
   || run systemctl --user enable --now omarchy-tailscale-receive.service
 omarchy plugin list 2>/dev/null | grep -q '^omarchy.tailscale *enabled' && ok "widget de Tailscale en la barra" \
   || run omarchy-plugin-enable omarchy.tailscale
+
+step "14. Repos privados para siempre (Capítulo 7)"
+command -v gitleaks >/dev/null && ok "gitleaks" || run sudo pacman -S --needed --noconfirm gitleaks
+command -v dotbare >/dev/null && ok "dotbare" || run yay -S --needed --noconfirm dotbare
+put "$HOME_ASSETS/.local/bin/gup" ~/.local/bin/gup 755
+put "$HOME_ASSETS/.cursor/hooks/brain-backup.sh" ~/.cursor/hooks/brain-backup.sh 755
+for u in brain-backup.service brain-backup.timer; do
+  put "$HOME_ASSETS/.config/systemd/user/$u" ~/.config/systemd/user/"$u" 644
+done
+if systemctl --user is-enabled -q brain-backup.timer 2>/dev/null; then ok "timer brain-backup"
+elif ((CHECK)); then todo "pendiente: activar brain-backup.timer"
+else systemctl --user daemon-reload && systemctl --user enable --now brain-backup.timer && ok "timer brain-backup activo"; fi
+if grep -qs 'DOTBARE_DIR="$HOME/.cfg"' ~/.bashrc; then ok "bloque dotbare + wgup en ~/.bashrc"
+elif ((CHECK)); then todo "pendiente: añadir assets/home/bashrc.forever.snippet a ~/.bashrc"
+else cp -a ~/.bashrc ~/.bashrc.pre-forever.$(date +%Y%m%d-%H%M%S) && cat "$HOME_ASSETS/bashrc.forever.snippet" >>~/.bashrc && ok "bloque dotbare añadido"; fi
+# repo|local git dir. Never clones over existing data: restoring is Chapter 8.
+for pair in "sura-brain|$HOME/.claude/.git" "sura-brain-user|${XDG_CONFIG_HOME:-$HOME/.config}/NIXFREDOS/USER/.git" \
+            "sura-conversations|$HOME/.claude/conversations-backup/.git" "sura-home|$HOME/.cfg"; do
+  repo=${pair%%|*} gitdir=${pair#*|}
+  vis=$(gh repo view "$GH_USER/$repo" --json visibility -q .visibility 2>/dev/null)
+  if [[ -z $vis ]]; then todo "$repo no existe en GitHub o gh no está autenticado (Capítulo 7)"; continue; fi
+  [[ $vis == PRIVATE ]] || { bad "$repo es $vis: debe ser PRIVATE, no hagas push"; continue; }
+  url=$(git --git-dir="$gitdir" remote get-url origin 2>/dev/null)
+  if [[ $url == *"/$repo.git" ]]; then ok "$repo (PRIVATE) ← ${gitdir/#$HOME/\~}"
+  else todo "$repo existe pero ${gitdir/#$HOME/\~} no apunta a él: restaurar (Capítulo 8)"; fi
+done
 
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi

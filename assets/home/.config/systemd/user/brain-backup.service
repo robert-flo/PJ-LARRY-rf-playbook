@@ -1,0 +1,8 @@
+[Unit]
+Description=Commit and push the private brain repos (sura-brain, sura-brain-user)
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.cursor/hooks/brain-backup.sh --foreground
+Nice=10

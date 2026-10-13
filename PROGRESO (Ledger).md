@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[02.6 - Capitulo 6 - Tailscale|Capítulo 6 — Tailscale]].
-- **Siguiente:** Capítulo 7 — Tu repo privado para siempre ([[assets/upstream-site/how.nixfred.com/07-forever-repo|original]]).
+- **Último completado:** [[02.7 - Capitulo 7 - Repos Privados para Siempre|Capítulo 7 — Repos privados para siempre]].
+- **Siguiente:** Capítulo 8 — Recuperación ante desastres ([[assets/upstream-site/how.nixfred.com/08-recovery|original]]).
 
 ## Registro
 
@@ -34,13 +34,13 @@ date: 2026-10-12
 | 2026-10-12 | Capítulo 4 | ✅ Hecho | Forks del stack clonados en `~/Projects`. Datos de nixfredOS en `~/.claude`. Fabric CLI v1.4.518 compilado desde el fork. Claude Code instalado por accidente vía el shim de Omarchy y revertido. |
 | 2026-10-12 | Capítulo 5 | ✅ Hecho | nixfredOS Core + componentes desde el submódulo; asistente **Sura**, principal **Robert**. Constitución por hook `sessionStart`; hooks de Claude funcionando en `cursor-agent` (gate de `beforeSubmitPrompt`, envoltura a JSON, límite de 10.000 caracteres). Memoria: `memory.db` con 40 sesiones, MCP `nixfredos-memory`, sync de transcripts de Cursor. Voz piper en español, Interceptor 2.1.0. Guardia en lugar del shim `claude`. Segmento de nixfredOS en la barra de estado. `rebuild.sh` pasos 8–12. |
 | 2026-10-12 | Capítulo 6 | ✅ Hecho | `omarchy-install-service-tailscale`; PC `her` (`100.87.210.6`) en `tail74414e.ts.net`, MagicDNS, Tailscale SSH (sin `sshd`), operador, Taildrop y widget. Puertos revisados antes de unirse. `rebuild.sh` paso 13. Pendiente: probar SSH desde otro nodo. |
+| 2026-10-12 | Capítulo 7 | ✅ Hecho | Cuatro repos `PRIVATE`: `sura-brain` (`~/.claude`, 42 MB sin `node_modules`), `sura-brain-user` (árbol USER), `sura-conversations` (`memory-backup`) y `sura-home` (dotbare, 268 archivos). Secretos incluidos (decisión del humano). `brain-backup.sh` en `sessionEnd` + timer horario, probado con una sesión real. `gup` con excepción de `master` solo en los repos de backup. `rebuild.sh` paso 14. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
 
 - Tailscale: probar Tailscale SSH desde otra máquina cuando se una; el humano borra en la consola los dispositivos viejos (`omarchy`, `omarchy-1`, `pc`, teléfono).
 - Pasos del humano del Capítulo 5: `codex login`; extensión de Interceptor en un perfil de prueba de Chrome + `INTERCEPTOR_TEST_CONTEXT_ID`; `CLOUDFLARE_API_TOKEN` en `~/.claude/.env`.
-- Capítulo 7: repo privado `sura-brain` y remoto privado para `~/.claude/conversations-backup` (verificar visibilidad antes del primer push).
 - Renombrar el usuario Linux `sura` y los playbooks de niri: tarea del humano.
 - Ollama (`nomic-embed-text`, extractor de memoria) o extractor con `cursor-agent -p` (parche a `Inference.ts` por PR a `personal` del fork): decidir en el Capítulo 11. Sin extractor, `memory_search`/`memory_recall` y AssociativeRecall no devuelven nada.
 - Fabric: `fabric --setup` con patterns y strategies apuntando al fork, en el último paso.
