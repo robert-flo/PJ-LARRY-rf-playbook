@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[04.16 - Capitulo 16 - Planear, Prototipar, Construir|Capítulo 16 — Planear, prototipar, construir]].
-- **Siguiente:** Capítulo 17 — Comandos slash y herramientas de doble uso ([[assets/upstream-site/how.nixfred.com/17-slash|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[04.17 - Capitulo 17 - Comandos Slash y Doble Uso|Capítulo 17 — Comandos slash y doble uso]].
+- **Siguiente:** Capítulo 18 — Modelos, razonamiento y coste ([[assets/upstream-site/how.nixfred.com/18-models|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -44,6 +44,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 14 | ✅ Hecho | Entrevista TELOS con menús (cinco bloques); `TELOS.md` con las palabras de Robert en `sura-brain-user` (privado; nada copiado al vault). Purga `clean`, filtro de contexto propio en lugar del fijo del generador, resumen regenerado. Regla "Deep context": leer el archivo completo ante preguntas estratégicas y frenar desvíos al entorno. Dos canarios responden contra las metas. |
 | 2026-10-13 | Capítulo 15 | ✅ Hecho | Reglas "How we work together": enfoque y pros y contras antes de código no trivial, preguntas sin tope en menús, cambio de enfoque al dar vueltas. `sura-canaries` (7 casos de los Caps. 13–15) + timer semanal: 7 de 7 con `auto`. El sync de transcripts ya no importa bancos de prueba (`~/.cache`, `/tmp`). `rebuild.sh` paso 18. Memoria limpiada: 53 sesiones de prueba fuera, quedan 10 reales (copia previa en `~/.local/share/`). |
 | 2026-10-13 | Capítulo 16 | ✅ Hecho | Modo Plan de serie (`Shift+Tab`, `/plan`). Regla "Name the mode first" (prototipo en `/zt` / directo / plan). `/feature-dev` global: pregunta → `spec.md` → `plan.md` → tareas con verificación → cierre con evidencia, con aprobación por menú. `sura-canaries` con 10 casos, todos ✓ con `auto`. |
+| 2026-10-13 | Capítulo 17 | ✅ Hecho | De serie: `/commit`, `/changes`. No existen aquí: bash en plantillas (probado), `allowed-tools` y `model:` por comando. Nuevos `/code-review`, `/security-review` (con gitleaks) y `/simplify`, todos de doble uso y en español. Canarios `code-review` + `code-review-readonly` (12 casos). |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
@@ -53,5 +54,6 @@ date: 2026-10-12
 - Melitta: servicios y timers de nixfredOS deshabilitados (chocaban con los de `gracie`). QA gráfica opcional con `sudo passwd melitta`.
 - Renombrar el usuario Linux `sura` y los playbooks de niri: tarea del humano.
 - TELOS: secciones aún vacías (Beliefs, Books, Sparks, Models…) y las carpetas `CURRENT_STATE/` e `IDEAL_STATE/` siguen con muestras; se completan con `/interview` cuando toque revisar.
+- `cursor-agent`: confirmar en sesión interactiva qué tecla abre el modo shell (equivalente al `!` de Claude Code).
 - Fabric: `fabric --setup` con patterns y strategies apuntando al fork, en el último paso.
 - Integraciones de los forks al estilo `PJ-NIRI-fo-*` (workflow `sync-personal-fork`, agentes PM/RV/WK, `AGENTS.md`, `docs/agents/`): último paso del playbook.

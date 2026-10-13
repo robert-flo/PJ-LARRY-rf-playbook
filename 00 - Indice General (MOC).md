@@ -95,7 +95,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 ### 4️⃣ Uso Diario (Part IV)
 - [[04.15 - Capitulo 15 - El Prompting es una Habilidad|15 — Prompting Is a Skill]] ✅: junior antes que máquina expendedora, preguntas sin tope, `sura-canaries` semanal · [[assets/upstream-site/how.nixfred.com/15-prompting|original]]
 - [[04.16 - Capitulo 16 - Planear, Prototipar, Construir|16 — Plan, Prototype, Build]] ✅: modo Plan (`Shift+Tab`), modos nombrados, prototipos en `/zt`, `/feature-dev` · [[assets/upstream-site/how.nixfred.com/16-plan-build|original]]
-- 17 — Slash Commands & Dual-Use Tooling · [[assets/upstream-site/how.nixfred.com/17-slash|original]]
+- [[04.17 - Capitulo 17 - Comandos Slash y Doble Uso|17 — Slash Commands & Dual-Use Tooling]] ✅: `/commit` de serie, `/code-review`, `/security-review`, `/simplify`, doble uso · [[assets/upstream-site/how.nixfred.com/17-slash|original]]
 - 18 — Models, Thinking & Cost · [[assets/upstream-site/how.nixfred.com/18-models|original]]
 - 19 — Permissions & Safe Autonomy · [[assets/upstream-site/how.nixfred.com/19-permissions|original]]
 
