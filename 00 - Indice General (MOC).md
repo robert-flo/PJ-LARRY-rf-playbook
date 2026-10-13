@@ -82,7 +82,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[02.5 - Capitulo 5 - nixfredOS en cursor-agent|05 — The One-Command Bootstrap → nixfredOS en cursor-agent]] ✅: Sura / Robert, constitución por hook, hooks de Claude adaptados, memoria, voz, Interceptor · [[assets/upstream-site/how.nixfred.com/05-bootstrap|original]] · [[assets/upstream-site/nixfredos.com/install|nixfredOS install]]
 - [[02.6 - Capitulo 6 - Tailscale|06 — Tailscale y la Malla Multi-Host]] ✅: PC `her` en la tailnet, MagicDNS, Tailscale SSH · [[assets/upstream-site/how.nixfred.com/06-tailscale|original]]
 - [[02.7 - Capitulo 7 - Repos Privados para Siempre|07 — Repos Privados para Siempre (y gup)]] ✅: `sura-brain`, `sura-brain-user`, `sura-conversations`, `sura-home` · [[assets/upstream-site/how.nixfred.com/07-forever-repo|original]]
-- 08 — Disaster Recovery & Continuity · [[assets/upstream-site/how.nixfred.com/08-recovery|original]]
+- [[02.8 - Capitulo 8 - Recuperacion ante Desastres|08 — Disaster Recovery & Continuity]] ✅: `restore.sh`, manifiesto de paquetes por hook de pacman, restore probado en `melitta` · [[assets/upstream-site/how.nixfred.com/08-recovery|original]]
 
 ### 3️⃣ Configuración (Part III)
 - 09 — Setup Beats Model · [[assets/upstream-site/how.nixfred.com/09-configure|original]]
