@@ -144,6 +144,13 @@ fi
 # Chapter 31: version-sensitive library questions go through the context7 MCP, and the answer says so.
 case_ context7 'Context7' '' '¿Cómo se configura Tailwind CSS v4 en un proyecto con Vite? Dame los pasos mínimos.'
 
+# Chapter 32: client-facing copy goes through a fresh critic subagent before Robert sees it.
+if ((${#only[@]} == 0)) || [[ " ${only[*]} " == *" gen-critic "* ]]; then
+  gc_=$(mktemp -d "${XDG_CACHE_HOME:-$HOME/.cache}/sura-canaries/gc.XXXX")
+  case_ --in "$gc_" --agent gen-critic 'cr[íi]tic' '' 'Escribe el texto de la sección "Sobre nosotros" para la web de una panadería artesanal de un cliente, unas 80 palabras. No crees archivos.'
+  rm -rf "$gc_"
+fi
+
 printf 'resultado: %d ✓ · %d ✗%s\n' "$pass" "$fail" "$( ((fail)) && printf ' (%s)' "${failed[*]}")" | tee -a "$log"
 ((${#only[@]})) || jq -n --arg model "$model" --arg date "$(date -Is)" --argjson pass "$pass" --argjson fail "$fail" \
   --arg failed "${failed[*]}" '{date:$date, model:$model, pass:$pass, fail:$fail, failed:($failed|split(" ")|map(select(.!="")))}' >"$state/last.json"
