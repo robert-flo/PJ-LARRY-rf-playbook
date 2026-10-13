@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[03.10 - Capitulo 10 - Proyectos, Roles y Referencias|Capítulo 10 — Proyectos, roles y material de referencia]].
-- **Siguiente:** Capítulo 11 — `CLAUDE.md`, `context.md` y memoria ([[assets/upstream-site/how.nixfred.com/11-memory-files|original]]). Incluye decidir Ollama o extractor con `cursor-agent`.
+- **Último completado:** [[03.11 - Capitulo 11 - Memoria Viva|Capítulo 11 — Memoria viva]].
+- **Siguiente:** Capítulo 12 — Bibliotecas de prompts, plantillas y listas de calidad ([[assets/upstream-site/how.nixfred.com/12-prompt-library|original]]).
 
 ## Registro
 
@@ -38,6 +38,7 @@ date: 2026-10-12
 | 2026-10-12 | Capítulo 8 | ✅ Hecho | Hook de pacman → `~/.config/pkglist/{pacman,aur}.txt` (230 + 12) en `sura-home`. `assets/restore.sh` (dotbare, paquetes, tres repos de nixfredOS, `bun install`, reubicación de `/home/gracie`). Restore probado en el usuario permanente `melitta`: Sura responde como `melitta` con memoria y hooks. Arreglos de la prueba: config de Git con `~/`, operador de Tailscale, timer restaurado. `rebuild.sh` paso 15. |
 | 2026-10-12 | Capítulo 9 | ✅ Hecho | Árbol USER con lo básico de Robert (idioma, foco, forma de trabajar) y sus convenciones en `OPERATIONAL_RULES.md`. Estilo y verificación de nixfredOS sin cambios. Correcciones permanentes escritas sin preguntar: probado con una sesión real (formato de 24 h) y empujado por `brain-backup`. |
 | 2026-10-12 | Capítulo 10 | ✅ Hecho | Todo en `~/Projects/<repo>`: 22 repos clonados y el vault, los playbooks de niri y `assets` movidos desde `/zt`. `USER/PROJECTS.md` con 25 proyectos, visibilidad, rol, alias y regla de privacidad; verificado con `cursor-agent`. `AGENTS.md` en `assets` ([assets#3](https://github.com/robert-flo/assets/pull/3)). `rebuild.sh` paso 16. |
+| 2026-10-12 | Capítulo 11 | ✅ Hecho | La guardia `claude` ahora responde las llamadas `--print` con `cursor-agent` (modelo `auto`, `HOME` aislado, sin hooks). `LMF4_EXTRACT_MODEL=auto`: primera extracción real (3 LoA, 4 decisiones). Ollama solo con `nomic-embed-text` + timer `memory-embed`: 841 embeddings, búsqueda semántica verificada. "Remember" escribe en el mismo turno. `rebuild.sh` pasos 8 y 17; [sura-home#3](https://github.com/robert-flo/sura-home/pull/3). |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
@@ -46,6 +47,5 @@ date: 2026-10-12
 - Pasos del humano del Capítulo 5: `codex login`; extensión de Interceptor en un perfil de prueba de Chrome + `INTERCEPTOR_TEST_CONTEXT_ID`; `CLOUDFLARE_API_TOKEN` en `~/.claude/.env`.
 - Melitta: servicios y timers de nixfredOS deshabilitados (chocaban con los de `gracie`). QA gráfica opcional con `sudo passwd melitta`.
 - Renombrar el usuario Linux `sura` y los playbooks de niri: tarea del humano.
-- Ollama (`nomic-embed-text`, extractor de memoria) o extractor con `cursor-agent -p` (parche a `Inference.ts` por PR a `personal` del fork): decidir en el Capítulo 11. Sin extractor, `memory_search`/`memory_recall` y AssociativeRecall no devuelven nada.
 - Fabric: `fabric --setup` con patterns y strategies apuntando al fork, en el último paso.
 - Integraciones de los forks al estilo `PJ-NIRI-fo-*` (workflow `sync-personal-fork`, agentes PM/RV/WK, `AGENTS.md`, `docs/agents/`): último paso del playbook.

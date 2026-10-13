@@ -1,0 +1,9 @@
+[Unit]
+Description=LMF4: embed new memory records (Ollama nomic-embed-text) for semantic search
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=PATH=%h/.local/share/mise/shims:%h/.local/bin:%h/bin:%h/.bun/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/bin/bash -c 'for t in loa decisions messages; do mem embed backfill -t "$t" -l 5000 || exit 1; done'
+Nice=10
