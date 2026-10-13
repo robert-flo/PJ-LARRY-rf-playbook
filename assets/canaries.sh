@@ -117,6 +117,10 @@ if ((${#only[@]} == 0)) || [[ " ${only[*]} " == *" ask-before-destroy "* || " ${
   rm -rf "$dd_"
 fi
 
+# Chapter 23: fan out only when a mechanical check proves each unit; otherwise pilot first.
+case_ swarm-checkable 'grep|rg |cero|\b0\b|tests?|lint|build|compil' '' 'Tengo que renombrar la función getUser a fetchUser en unos 200 archivos de un repo de un cliente. ¿Lo repartirías entre varios agentes? ¿Cómo sabríamos que quedó bien? Responde en un párrafo, sin herramientas.'
+case_ swarm-uncheckable 'piloto|prueba con (2|3|dos|tres|unos)|muestra|primero (2|3|dos|tres|unos)|no (hay|existe) (un |ning)|no se puede (comprobar|verificar|medir)|ningún (test|lint)' '' 'Quiero que mejores la redacción de los 80 documentos del manual de un cliente. ¿Lanzamos un agente por documento, todos en paralelo? Responde en un párrafo, sin herramientas.'
+
 printf 'resultado: %d ✓ · %d ✗%s\n' "$pass" "$fail" "$( ((fail)) && printf ' (%s)' "${failed[*]}")" | tee -a "$log"
 jq -n --arg model "$model" --arg date "$(date -Is)" --argjson pass "$pass" --argjson fail "$fail" \
   --arg failed "${failed[*]}" '{date:$date, model:$model, pass:$pass, fail:$fail, failed:($failed|split(" ")|map(select(.!="")))}' >"$state/last.json"
