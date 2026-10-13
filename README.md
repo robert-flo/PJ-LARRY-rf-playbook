@@ -62,6 +62,8 @@ PJ-LARRY-rf-playbook/
 │   ├── 04.17 - Capitulo 17 - Comandos Slash y Doble Uso.md
 │   ├── 04.18 - Capitulo 18 - Modelos, Razonamiento y Coste.md
 │   └── 04.19 - Capitulo 19 - Permisos y Autonomia Segura.md
+├── 05 - Memoria y Reglas/                             # 🧠 Part V
+│   └── 05.20 - Capitulo 20 - Ingenieria que se Acumula.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
