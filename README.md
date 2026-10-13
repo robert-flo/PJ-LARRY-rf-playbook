@@ -39,7 +39,8 @@ PJ-LARRY-rf-playbook/
 ├── 01 - Fundamentos/                                  # 🧭 Part I
 │   ├── 01.0 - Paso 0 - Desde Cero con cursor-agent.md
 │   ├── 01.1 - Capitulo 1 - El Paradigma de la Terminal.md
-│   └── 01.2 - Capitulo 2 - Primera Sesion.md
+│   ├── 01.2 - Capitulo 2 - Primera Sesion.md
+│   └── 01.3 - Capitulo 3 - Hablar en Opciones.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
