@@ -26,6 +26,8 @@ Está pensada para que un agente la ejecute en orden y, a la vez, le explique al
 Lee AGENTS.md y PROGRESO (Ledger).md de este vault y continúa el playbook donde lo dejamos.
 ```
 
+**En una PC nueva:** sigue [`10 - Referencias/10.4 - Reconstruir en una PC Nueva.md`](10%20-%20Referencias/10.4%20-%20Reconstruir%20en%20una%20PC%20Nueva.md). Tras los pasos del humano (`gh auth login`, `cursor-agent login`, User Rules), `assets/rebuild.sh --check` muestra qué falta y `assets/rebuild.sh` lo aplica.
+
 ---
 
 ## 🗺️ Estructura del Repositorio
@@ -46,10 +48,12 @@ PJ-LARRY-rf-playbook/
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
-│   └── 10.3 - Archivo del Sitio how.nixfred.com.md
+│   ├── 10.3 - Archivo del Sitio how.nixfred.com.md
+│   └── 10.4 - Reconstruir en una PC Nueva.md
 ├── nixfredOS/                                         # 🧠 Submódulo: fork PJ-LARRY-fo-nixfredOS (personal)
 └── assets/
-    ├── home/                                          # Copias de archivos de usuario (p. ej. .config/cursor/statusline.sh)
+    ├── rebuild.sh                                     # 💻 Reconstruye la máquina en una PC nueva (ver 10.4)
+    ├── home/                                          # Copias de archivos de usuario (statusline, cli-config, bloque try)
     └── upstream-site/                                 # Copia del sitio en Markdown (ver 10.3)
         ├── html2md.py
         ├── how.nixfred.com/                           # 55 páginas + install.sh + seed/
