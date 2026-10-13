@@ -77,6 +77,8 @@ PJ-LARRY-rf-playbook/
 │   ├── 07.29 - Capitulo 29 - Disenar y Desplegar Rutinas.md
 │   ├── 07.30 - Capitulo 30 - Sistemas Repetibles.md
 │   └── 07.31 - Capitulo 31 - Claude en Todas Partes.md
+├── 08 - Maestria/                                     # 🎓 Part VIII
+│   └── 08.32 - Capitulo 32 - Patrones Multiagente.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
