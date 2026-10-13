@@ -66,6 +66,8 @@ jq -n \
       sessions: ($e | group_by(.conversationId)
         | map({key: .[0].conversationId, value: (map(.chargedCents // 0) | add)}) | from_entries),
       month_pct: ($period[0].planUsage.totalPercentUsed // 0),
+      auto_pct: ($period[0].planUsage.autoPercentUsed // null),
+      api_pct: ($period[0].planUsage.apiPercentUsed // null),
       month_spend_cents: ($period[0].planUsage.totalSpend // 0),
       month_included_cents: ($period[0].planUsage.limit // 0),
       cycle_start: ($period[0].billingCycleStart // "0" | tonumber),

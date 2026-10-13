@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[04.17 - Capitulo 17 - Comandos Slash y Doble Uso|Capítulo 17 — Comandos slash y doble uso]].
-- **Siguiente:** Capítulo 18 — Modelos, razonamiento y coste ([[assets/upstream-site/how.nixfred.com/18-models|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[04.18 - Capitulo 18 - Modelos, Razonamiento y Coste|Capítulo 18 — Modelos, razonamiento y coste]].
+- **Siguiente:** Capítulo 19 — Permisos y autonomía segura ([[assets/upstream-site/how.nixfred.com/19-permissions|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -45,10 +45,12 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 15 | ✅ Hecho | Reglas "How we work together": enfoque y pros y contras antes de código no trivial, preguntas sin tope en menús, cambio de enfoque al dar vueltas. `sura-canaries` (7 casos de los Caps. 13–15) + timer semanal: 7 de 7 con `auto`. El sync de transcripts ya no importa bancos de prueba (`~/.cache`, `/tmp`). `rebuild.sh` paso 18. Memoria limpiada: 53 sesiones de prueba fuera, quedan 10 reales (copia previa en `~/.local/share/`). |
 | 2026-10-13 | Capítulo 16 | ✅ Hecho | Modo Plan de serie (`Shift+Tab`, `/plan`). Regla "Name the mode first" (prototipo en `/zt` / directo / plan). `/feature-dev` global: pregunta → `spec.md` → `plan.md` → tareas con verificación → cierre con evidencia, con aprobación por menú. `sura-canaries` con 10 casos, todos ✓ con `auto`. |
 | 2026-10-13 | Capítulo 17 | ✅ Hecho | De serie: `/commit`, `/changes`. No existen aquí: bash en plantillas (probado), `allowed-tools` y `model:` por comando. Nuevos `/code-review`, `/security-review` (con gitleaks) y `/simplify`, todos de doble uso y en español. Canarios `code-review` + `code-review-readonly` (12 casos). |
+| 2026-10-13 | Capítulo 18 | ✅ Hecho | Política: solo Auto, sin sugerir modelos; excepción con la bolsa Auto al 100 % → modelo de la bolsa API (probado con caché simulado). Barra dividida `auto N% … · api N%`. Canario `model-auto` (13 casos). Auto al 76,6 % con el 30,6 % del ciclo: se agotaría hacia el 16/10. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
 
+- Bolsa Auto: se agotaría hacia el 2026-10-16. Pasar a la bolsa API (`/model <modelo con nombre>`) y, si también se acaba, esperar al 2026-11-03. Sin gasto extra.
 - Tailscale: probar Tailscale SSH desde otra máquina cuando se una; el humano borra en la consola los dispositivos viejos (`omarchy`, `omarchy-1`, `pc`, teléfono).
 - Pasos del humano del Capítulo 5: `codex login`; extensión de Interceptor en un perfil de prueba de Chrome + `INTERCEPTOR_TEST_CONTEXT_ID`; `CLOUDFLARE_API_TOKEN` en `~/.claude/.env`.
 - Melitta: servicios y timers de nixfredOS deshabilitados (chocaban con los de `gracie`). QA gráfica opcional con `sudo passwd melitta`.

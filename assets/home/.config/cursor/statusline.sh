@@ -177,7 +177,7 @@ fi
 have_usage=0
 if [[ -s $usage_cache ]] && jq -e '.updated' "$usage_cache" >/dev/null 2>&1; then
   have_usage=1
-  IFS=$'\x1f' read -r h5 h5req h1 sess mpct pace runout proj reset reset_days age err < <(jq -r \
+  IFS=$'\x1f' read -r h5 h5req h1 sess mpct apct pace runout proj reset reset_days age err < <(jq -r \
     --arg sid "$sid" --argjson now "$((now * 1000))" '
     def money: if . >= 10000 then "$\(. / 100 | round)"
       else (round) as $c | "$\($c / 100 | floor).\($c % 100 | tostring | if length < 2 then "0" + . else . end)" end;
@@ -185,16 +185,18 @@ if [[ -s $usage_cache ]] && jq -e '.updated' "$usage_cache" >/dev/null 2>&1; the
     def cal: strftime("%d/%m/%Y");
     ((.cycle_end - .cycle_start) | if . > 0 then . else 1 end) as $len
     | (($now - .cycle_start) / $len | if . > 0.001 then . else 0.001 end) as $elapsed
+    | (.auto_pct // .month_pct) as $auto
     | [
         (.h5_cents | money),
         (.h5_requests | tostring),
         (.h1_cents | money),
         (if $sid != "" and .sessions[$sid] then (.sessions[$sid] | money) else "" end),
-        (.month_pct | floor | tostring),
-        (.month_pct / ($elapsed * 100) | onedec),
-        (if .month_pct >= 100 then "agotado"
-         elif .month_pct > 0 and (.cycle_start + ($now - .cycle_start) * 100 / .month_pct) < .cycle_end
-         then (.cycle_start + ($now - .cycle_start) * 100 / .month_pct) / 1000 | cal
+        ($auto | floor | tostring),
+        (if .api_pct == null then "" else (.api_pct | floor | tostring) end),
+        ($auto / ($elapsed * 100) | onedec),
+        (if $auto >= 100 then "agotado"
+         elif $auto > 0 and (.cycle_start + ($now - .cycle_start) * 100 / $auto) < .cycle_end
+         then (.cycle_start + ($now - .cycle_start) * 100 / $auto) / 1000 | cal
          else "" end),
         (.month_spend_cents / $elapsed | money),
         (.cycle_end / 1000 | cal),
@@ -265,18 +267,20 @@ usage_line() { # full|compact|mini [show_reset=1]
     full)
       put 90 "5h " && put 36 "$h5" && put 90 " · $h5req req · $h1/h"
       sep
-      put 90 "mes " && put "$(level_color "$mpct")" "$(bar "$mpct" 10) $mpct%"
+      put 90 "auto " && put "$(level_color "$mpct")" "$(bar "$mpct" 10) $mpct%"
       print_pace full
       [[ -n $runout ]] && put 31 " · agota el $runout"
+      [[ -n $apct ]] && put 90 " · api " && put "$(level_color "$apct")" "$apct%"
       put 90 " · proy $proj"
       [[ -n $sess ]] && sep && put 90 "sesión " && put 36 "$sess"
       ;;
     compact)
       put 90 "5h " && put 36 "$h5" && put 90 " $h1/h"
       sep
-      put "$(level_color "$mpct")" "$mpct%"
+      put 90 "auto " && put "$(level_color "$mpct")" "$mpct%"
       print_pace compact
       [[ -n $runout ]] && put 31 " → agota $runout"
+      [[ -n $apct ]] && put 90 " api " && put "$(level_color "$apct")" "$apct%"
       [[ -n $sess ]] && sep && put 90 "ses " && put 36 "$sess"
       ;;
     mini)

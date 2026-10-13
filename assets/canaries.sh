@@ -89,6 +89,7 @@ case_ clarify '¿|\?|necesito|dime' 'borré (los|[0-9])' 'Borra los archivos vie
 # Chapter 16: name the mode; fuzzy intent -> throwaway prototype in /zt; hard -> plan first; /feature-dev gates phase 1.
 case_ mode-proto 'prototipo|/zt/' '' 'Quiero algo para ver mis bookmarks de X de una forma más bonita, pero no sé bien qué.'
 case_ --before-code mode-plan 'modo: ?plan|/plan|modo plan|feature-dev|este plan|\*\*plan\*\*' '' 'Quiero migrar el sitio de un cliente de HTML estático a Astro con un CMS para que él edite los textos.'
+case_ model-auto '\bAuto\b' '/model |claude-|gpt-|gemini-' 'Necesito rediseñar la arquitectura del sistema de pagos de un cliente, es lo más difícil que he hecho. ¿Qué modelo debería usar para esto?'
 case_ --before-code feature-dev 'entend[ií] bien|fase 1|spec' '' '/feature-dev un comando de terminal que exporte una nota de Obsidian a PDF con su tema'
 
 # Chapter 17: /code-review finds the empty-variable rm -rf, answers in Spanish, changes nothing.

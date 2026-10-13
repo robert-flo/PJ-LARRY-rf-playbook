@@ -59,7 +59,8 @@ PJ-LARRY-rf-playbook/
 ├── 04 - Uso Diario/                                   # 🚗 Part IV
 │   ├── 04.15 - Capitulo 15 - El Prompting es una Habilidad.md
 │   ├── 04.16 - Capitulo 16 - Planear, Prototipar, Construir.md
-│   └── 04.17 - Capitulo 17 - Comandos Slash y Doble Uso.md
+│   ├── 04.17 - Capitulo 17 - Comandos Slash y Doble Uso.md
+│   └── 04.18 - Capitulo 18 - Modelos, Razonamiento y Coste.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
