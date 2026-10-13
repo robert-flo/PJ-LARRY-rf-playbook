@@ -321,6 +321,11 @@ put "$VAULT/assets/sura-flow/sura-flow.ts" ~/.local/share/sura-flow/sura-flow.ts
 put "$VAULT/assets/sura-flow/examples/audit.ts" ~/.local/share/sura-flow/examples/audit.ts 644
 put "$VAULT/assets/sura-flow/sura-flow" ~/.local/bin/sura-flow 755
 
+step "21. Briefing matutino: sura-brief (Capítulo 30)"
+put "$VAULT/assets/sura-brief.sh" ~/.local/bin/sura-brief 755
+if [[ -f ~/.claude/commands/buenosdias.md ]]; then ok "/buenosdias (llega con sura-brain)"
+else todo "falta ~/.claude/commands/buenosdias.md: restaurar sura-brain (paso 14)"; fi
+
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi
 ((CHECK)) && echo "Revisión terminada (sin cambios)." || echo "Máquina al día hasta el último capítulo cubierto por este script."
