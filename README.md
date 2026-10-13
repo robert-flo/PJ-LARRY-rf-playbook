@@ -45,7 +45,8 @@ PJ-LARRY-rf-playbook/
 │   └── 01.3 - Capitulo 3 - Hablar en Opciones.md
 ├── 02 - Instalacion del Stack/                        # 🧱 Part II
 │   ├── 02.4 - Capitulo 4 - El Stack de Larry.md
-│   └── 02.5 - Capitulo 5 - nixfredOS en cursor-agent.md
+│   ├── 02.5 - Capitulo 5 - nixfredOS en cursor-agent.md
+│   └── 02.6 - Capitulo 6 - Tailscale.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
