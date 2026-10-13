@@ -326,6 +326,12 @@ put "$VAULT/assets/sura-brief.sh" ~/.local/bin/sura-brief 755
 if [[ -f ~/.claude/commands/buenosdias.md ]]; then ok "/buenosdias (llega con sura-brain)"
 else todo "falta ~/.claude/commands/buenosdias.md: restaurar sura-brain (paso 14)"; fi
 
+step "22. Context7: documentación por versión (Capítulo 31)"
+if jq -e '.mcpServers.context7' ~/.cursor/mcp.json >/dev/null 2>&1; then ok "context7 en ~/.cursor/mcp.json (llega con sura-home)"
+else todo "falta context7 en ~/.cursor/mcp.json: restaurar sura-home (paso 15)"; fi
+if (cd ~ && cursor-agent mcp list 2>/dev/null | grep -q '^context7: ready'); then ok "context7 aprobado"
+else run bash -c 'cd ~ && cursor-agent mcp enable context7'; fi
+
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi
 ((CHECK)) && echo "Revisión terminada (sin cambios)." || echo "Máquina al día hasta el último capítulo cubierto por este script."

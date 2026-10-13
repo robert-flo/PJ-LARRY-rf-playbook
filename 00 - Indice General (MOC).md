@@ -115,7 +115,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[07.28 - Capitulo 28 - Rutinas|28 — Routines: The Laptop-Off Teammate]] ✅ (solo documentación): timers locales y la vía en la nube · [[assets/upstream-site/how.nixfred.com/28-routines|original]]
 - [[07.29 - Capitulo 29 - Disenar y Desplegar Rutinas|29 — Designing & Deploying Routines]] ✅ (solo documentación) · [[assets/upstream-site/how.nixfred.com/29-routine-design|original]]
 - [[07.30 - Capitulo 30 - Sistemas Repetibles|30 — Repeatable Systems]] ✅: `/buenosdias` con `sura-brief` · [[assets/upstream-site/how.nixfred.com/30-systems|original]]
-- 31 — Claude Everywhere + The Ecosystem · [[assets/upstream-site/how.nixfred.com/31-everywhere|original]]
+- [[07.31 - Capitulo 31 - Claude en Todas Partes|31 — Claude Everywhere + The Ecosystem]] ✅: Context7 para documentación por versión · [[assets/upstream-site/how.nixfred.com/31-everywhere|original]]
 
 ### 8️⃣ Maestría (Part VIII)
 - 32 — Multi-Agent Patterns · [[assets/upstream-site/how.nixfred.com/32-multi-agent-patterns|original]]
