@@ -56,6 +56,8 @@ PJ-LARRY-rf-playbook/
 │   ├── 03.12 - Capitulo 12 - Prompts, Plantillas y Calidad.md
 │   ├── 03.13 - Capitulo 13 - Disciplina de Contexto.md
 │   └── 03.14 - Capitulo 14 - TELOS.md
+├── 04 - Uso Diario/                                   # 🚗 Part IV
+│   └── 04.15 - Capitulo 15 - El Prompting es una Habilidad.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md

@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[03.14 - Capitulo 14 - TELOS|Capítulo 14 — TELOS]]. Fin de la Parte III.
-- **Siguiente:** Capítulo 15 — El prompting es una habilidad ([[assets/upstream-site/how.nixfred.com/15-prompting|original]]), inicio de la Parte IV. Para retomar: `/seguir` en el vault.
+- **Último completado:** [[04.15 - Capitulo 15 - El Prompting es una Habilidad|Capítulo 15 — El prompting es una habilidad]].
+- **Siguiente:** Capítulo 16 — Planear, prototipar, construir ([[assets/upstream-site/how.nixfred.com/16-plan-build|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -42,6 +42,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 12 | ✅ Hecho | `/check` (apunta a Verification №2 y al estilo de `DA_IDENTITY.md`) y `/pr` globales en `~/.claude/commands`; skill `cerrar-capitulo` con plantilla y `/seguir` en el vault. `cursor-agent` carga comandos y skills globales y del proyecto (canarios). `/check` exigió evidencia ante un "debería funcionar". |
 | 2026-10-13 | Capítulo 13 | ✅ Hecho | Equivalentes: `/context`, `/summarize` (sin argumento), `/clear`, `/rewind`. Comando global `/relevo <foco>` para dirigir el resumen. Barra de contexto amarilla al 60 %. Regla en `OPERATIONAL_RULES.md`: Sura propone `/clear` al cambiar de tema (3 de 3 con `auto`; `composer-2.5` no). Base fija medida: ~26k tokens, se mantiene. `rebuild.sh` paso 2 fija `rewind`. |
 | 2026-10-13 | Capítulo 14 | ✅ Hecho | Entrevista TELOS con menús (cinco bloques); `TELOS.md` con las palabras de Robert en `sura-brain-user` (privado; nada copiado al vault). Purga `clean`, filtro de contexto propio en lugar del fijo del generador, resumen regenerado. Regla "Deep context": leer el archivo completo ante preguntas estratégicas y frenar desvíos al entorno. Dos canarios responden contra las metas. |
+| 2026-10-13 | Capítulo 15 | ✅ Hecho | Reglas "How we work together": enfoque y pros y contras antes de código no trivial, preguntas sin tope en menús, cambio de enfoque al dar vueltas. `sura-canaries` (7 casos de los Caps. 13–15) + timer semanal: 7 de 7 con `auto`. El sync de transcripts ya no importa bancos de prueba (`~/.cache`, `/tmp`). `rebuild.sh` paso 18. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
@@ -51,5 +52,6 @@ date: 2026-10-12
 - Melitta: servicios y timers de nixfredOS deshabilitados (chocaban con los de `gracie`). QA gráfica opcional con `sudo passwd melitta`.
 - Renombrar el usuario Linux `sura` y los playbooks de niri: tarea del humano.
 - TELOS: secciones aún vacías (Beliefs, Books, Sparks, Models…) y las carpetas `CURRENT_STATE/` e `IDEAL_STATE/` siguen con muestras; se completan con `/interview` cuando toque revisar.
+- Memoria: `memory.db` conserva sesiones viejas de bancos de prueba (`ws`, `tmp`, `canary`, `hookplain`, `hooktest`…). El sync ya no importa nuevas; borrar las existentes es decisión del humano.
 - Fabric: `fabric --setup` con patterns y strategies apuntando al fork, en el último paso.
 - Integraciones de los forks al estilo `PJ-NIRI-fo-*` (workflow `sync-personal-fork`, agentes PM/RV/WK, `AGENTS.md`, `docs/agents/`): último paso del playbook.

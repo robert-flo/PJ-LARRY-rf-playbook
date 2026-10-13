@@ -93,7 +93,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[03.14 - Capitulo 14 - TELOS|14 — TELOS]] ✅: entrevista con menús, `TELOS.md` privado, filtro de contexto propio, lectura bajo demanda · [[assets/upstream-site/how.nixfred.com/14-telos|original]] · [[assets/upstream-site/how.nixfred.com/telos-questions|preguntas]]
 
 ### 4️⃣ Uso Diario (Part IV)
-- 15 — Prompting Is a Skill · [[assets/upstream-site/how.nixfred.com/15-prompting|original]]
+- [[04.15 - Capitulo 15 - El Prompting es una Habilidad|15 — Prompting Is a Skill]] ✅: junior antes que máquina expendedora, preguntas sin tope, `sura-canaries` semanal · [[assets/upstream-site/how.nixfred.com/15-prompting|original]]
 - 16 — Plan, Prototype, Build · [[assets/upstream-site/how.nixfred.com/16-plan-build|original]]
 - 17 — Slash Commands & Dual-Use Tooling · [[assets/upstream-site/how.nixfred.com/17-slash|original]]
 - 18 — Models, Thinking & Cost · [[assets/upstream-site/how.nixfred.com/18-models|original]]
