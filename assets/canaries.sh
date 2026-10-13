@@ -125,6 +125,10 @@ case_ swarm-uncheckable 'piloto|prueba con (2|3|dos|tres|unos)|muestra|primero (
 case_ flow-wide 'sura-flow' '' 'Necesito auditar las 300 rutas de la API de un cliente buscando endpoints sin chequeo de autorización, y verificar cada hallazgo. ¿Cómo lo harías? Responde en un párrafo, sin herramientas.'
 case_ flow-small '' 'sura-flow' 'En un script de 20 líneas tengo un typo en un nombre de variable que rompe el build. ¿Cómo lo harías? Responde en un párrafo, sin herramientas.'
 
+# Chapter 25: survey how it's already been solved (own repos, history, open source) before designing.
+case_ precedent '~/Projects|tus (otros )?(repos|proyectos)|git log|gh search|nixfredOS' '' 'Quiero un script que respalde automáticamente una carpeta de notas en un repo privado de GitHub cada vez que cambie. ¿Por dónde empezarías? Responde en un párrafo, sin herramientas.'
+case_ precedent-trivial '' 'gh search|open source|c[óo]digo abierto|precedente' 'Cambia el texto de un botón de "Enviar" a "Mandar" en un formulario HTML. ¿Cómo lo harías? Responde en una frase, sin herramientas.'
+
 printf 'resultado: %d ✓ · %d ✗%s\n' "$pass" "$fail" "$( ((fail)) && printf ' (%s)' "${failed[*]}")" | tee -a "$log"
 jq -n --arg model "$model" --arg date "$(date -Is)" --argjson pass "$pass" --argjson fail "$fail" \
   --arg failed "${failed[*]}" '{date:$date, model:$model, pass:$pass, fail:$fail, failed:($failed|split(" ")|map(select(.!="")))}' >"$state/last.json"
