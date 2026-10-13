@@ -42,7 +42,7 @@ date: 2026-10-12
 
 - Tailscale: probar Tailscale SSH desde otra máquina cuando se una; el humano borra en la consola los dispositivos viejos (`omarchy`, `omarchy-1`, `pc`, teléfono).
 - Pasos del humano del Capítulo 5: `codex login`; extensión de Interceptor en un perfil de prueba de Chrome + `INTERCEPTOR_TEST_CONTEXT_ID`; `CLOUDFLARE_API_TOKEN` en `~/.claude/.env`.
-- Melitta: sus servicios de nixfredOS (Pulse 31337, Interceptor 20220) arrancarán en el próximo arranque por linger y chocarán con los de `gracie`; decidir si se deshabilitan. QA gráfica opcional con `sudo passwd melitta`.
+- Melitta: servicios y timers de nixfredOS deshabilitados (chocaban con los de `gracie`). QA gráfica opcional con `sudo passwd melitta`.
 - Renombrar el usuario Linux `sura` y los playbooks de niri: tarea del humano.
 - Ollama (`nomic-embed-text`, extractor de memoria) o extractor con `cursor-agent -p` (parche a `Inference.ts` por PR a `personal` del fork): decidir en el Capítulo 11. Sin extractor, `memory_search`/`memory_recall` y AssociativeRecall no devuelven nada.
 - Fabric: `fabric --setup` con patterns y strategies apuntando al fork, en el último paso.
