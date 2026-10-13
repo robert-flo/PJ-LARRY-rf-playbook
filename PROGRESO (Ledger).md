@@ -19,17 +19,17 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Capítulo en curso:** [[01.0 - Paso 0 - Desde Cero con cursor-agent|Paso 0 — Desde Cero con cursor-agent]]
-- **Siguiente:** Capítulo 1 — The Paradigm.
+- **Último completado:** [[01.0 - Paso 0 - Desde Cero con cursor-agent|Paso 0 — Desde Cero con cursor-agent]]
+- **Siguiente:** Capítulo 1 — The Paradigm ([[assets/upstream-site/how.nixfred.com/01-the-paradigm|original]]).
 
 ## Registro
 
 | Fecha | Capítulo | Estado | Evidencia / notas |
 |---|---|---|---|
 | 2026-10-12 | Preparación | ✅ Hecho | Vault creado, sitio archivado en `assets/upstream-site/`, 10 forks `PJ-LARRY-fo-*` con rama `personal`, submódulo `nixfredOS/`. Ver [[10.2 - Repositorios Upstream y Forks\|10.2]]. |
-| 2026-10-12 | Paso 0 | ⏳ En curso | |
+| 2026-10-12 | Paso 0 | ✅ Hecho | `cursor-agent` logueado, modo `--force`, plan Pro anual. nixbash como capa sobre Omarchy ([PJ-LARRY-fo-nixbash#1](https://github.com/robert-flo/PJ-LARRY-fo-nixbash/pull/1)). Tailscale pospuesto al Cap. 6. |
 
 ## Pendientes abiertos
 
+- Tailscale: instalar en el Capítulo 6.
 - Integraciones de los forks al estilo `PJ-NIRI-fo-*` (workflow `sync-personal-fork`, agentes PM/RV/WK, `AGENTS.md`, `docs/agents/`): último paso del playbook.
-- `nixbash`: su instalador descarga de `nixfred/nixbash@main` y reemplaza `~/.bashrc`. Decidir en el Paso 0 (ver [[01.0 - Paso 0 - Desde Cero con cursor-agent|Paso 0]]).
