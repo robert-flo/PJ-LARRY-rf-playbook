@@ -1,0 +1,7 @@
+[Unit]
+Description=PJ-LARRY: mirror cursor-agent transcripts into the nixfredOS memory engine
+
+[Service]
+Type=oneshot
+ExecStart=%h/.cursor/hooks/cursor-transcripts-sync.sh --foreground
+Nice=10

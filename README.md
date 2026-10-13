@@ -44,7 +44,8 @@ PJ-LARRY-rf-playbook/
 │   ├── 01.2 - Capitulo 2 - Primera Sesion.md
 │   └── 01.3 - Capitulo 3 - Hablar en Opciones.md
 ├── 02 - Instalacion del Stack/                        # 🧱 Part II
-│   └── 02.4 - Capitulo 4 - El Stack de Larry.md
+│   ├── 02.4 - Capitulo 4 - El Stack de Larry.md
+│   └── 02.5 - Capitulo 5 - nixfredOS en cursor-agent.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
@@ -53,7 +54,8 @@ PJ-LARRY-rf-playbook/
 ├── nixfredOS/                                         # 🧠 Submódulo: fork PJ-LARRY-fo-nixfredOS (personal)
 └── assets/
     ├── rebuild.sh                                     # 💻 Reconstruye la máquina en una PC nueva (ver 10.4)
-    ├── home/                                          # Copias de archivos de usuario (statusline, cli-config, bloque try)
+    ├── nixfredos-substitute.ts                        # Rellena los placeholders de identidad de nixfredOS
+    ├── home/                                          # Copias de archivos de usuario (statusline, cli-config, hooks de Cursor, guardia claude, systemd)
     └── upstream-site/                                 # Copia del sitio en Markdown (ver 10.3)
         ├── html2md.py
         ├── how.nixfred.com/                           # 55 páginas + install.sh + seed/
