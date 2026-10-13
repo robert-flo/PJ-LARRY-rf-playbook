@@ -110,7 +110,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[06.25 - Capitulo 25 - Conocimiento Tacito y Reutilizacion|25 — Tacit Knowledge & Code Reuse]] ✅: antes de diseñar, buscar cómo ya se resolvió · [[assets/upstream-site/how.nixfred.com/25-tacit|original]]
 
 ### 7️⃣ Conectar y Automatizar (Part VII)
-- 26 — Connectors: Email, Calendar, Docs, Slack, Web · [[assets/upstream-site/how.nixfred.com/26-connectors|original]]
+- [[07.26 - Capitulo 26 - Conectores|26 — Connectors: Email, Calendar, Docs, Slack, Web]] ✅: ninguno conectado; postura de privacidad y envíos escrita · [[assets/upstream-site/how.nixfred.com/26-connectors|original]]
 - 27 — Beyond Chat: Desktop, Files & Folders · [[assets/upstream-site/how.nixfred.com/27-beyond-chat|original]]
 - 28 — Routines: The Laptop-Off Teammate · [[assets/upstream-site/how.nixfred.com/28-routines|original]]
 - 29 — Designing & Deploying Routines · [[assets/upstream-site/how.nixfred.com/29-routine-design|original]]
