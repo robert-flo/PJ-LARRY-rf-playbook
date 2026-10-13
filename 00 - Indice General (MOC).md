@@ -100,7 +100,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[04.19 - Capitulo 19 - Permisos y Autonomia Segura|19 — Permissions & Safe Autonomy]] ✅: modo peligroso puro, qué bloquea `deny` de verdad, Sura pregunta antes de borrar lo irrecuperable · [[assets/upstream-site/how.nixfred.com/19-permissions|original]]
 
 ### 5️⃣ Memoria y Reglas (Part V)
-- 20 — Compounding Engineering · [[assets/upstream-site/how.nixfred.com/20-compounding|original]]
+- [[05.20 - Capitulo 20 - Ingenieria que se Acumula|20 — Compounding Engineering]] ✅: las lecciones van al sistema; las de un repo, a su `AGENTS.md` · [[assets/upstream-site/how.nixfred.com/20-compounding|original]]
 - 21 — Hooks: Determinism You Can't Skip · [[assets/upstream-site/how.nixfred.com/21-hooks|original]]
 
 ### 6️⃣ Escalar (Part VI)

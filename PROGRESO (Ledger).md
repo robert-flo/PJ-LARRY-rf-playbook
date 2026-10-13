@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[04.19 - Capitulo 19 - Permisos y Autonomia Segura|Capítulo 19 — Permisos y autonomía segura]].
-- **Siguiente:** Capítulo 20 — Ingeniería que se acumula ([[assets/upstream-site/how.nixfred.com/20-compounding|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[05.20 - Capitulo 20 - Ingenieria que se Acumula|Capítulo 20 — Ingeniería que se acumula]].
+- **Siguiente:** Capítulo 21 — Hooks ([[assets/upstream-site/how.nixfred.com/21-hooks|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -47,6 +47,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 17 | ✅ Hecho | De serie: `/commit`, `/changes`. No existen aquí: bash en plantillas (probado), `allowed-tools` y `model:` por comando. Nuevos `/code-review`, `/security-review` (con gitleaks) y `/simplify`, todos de doble uso y en español. Canarios `code-review` + `code-review-readonly` (12 casos). |
 | 2026-10-13 | Capítulo 18 | ✅ Hecho | Política: solo Auto, sin sugerir modelos; excepción con la bolsa Auto al 100 % → modelo de la bolsa API (probado con caché simulado). Barra dividida `auto N% … · api N%`. Canario `model-auto` (13 casos). Auto al 76,6 % con el 30,6 % del ciclo: se agotaría hacia el 16/10. |
 | 2026-10-13 | Capítulo 19 | ✅ Hecho | Modo peligroso puro (sin `deny`). Medido: `deny` funciona con `--force`, pero `Shell(...)` solo mira el nombre del comando y `Write(...)` necesita `**/`. Antes de la regla, Sura borró o mandó a la papelera datos sin copia 3 de 3; con la regla "Danger mode", intactos 11 de 11 y el borrado rutinario sin frenos. Canarios `ask-before-destroy` y `delete-own-temp` (`--agent`); arreglado `report`. |
+| 2026-10-13 | Capítulo 20 | ✅ Hecho | El hábito ya existía (Cap. 9 + `SelfHealing.md` + canarios). Regla nueva de alcance: lo que vale solo para un repo va a su `AGENTS.md`. Probado 2 de 2 en repos desechables (rama auxiliar, commit sin trailers, árbol USER intacto). |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
