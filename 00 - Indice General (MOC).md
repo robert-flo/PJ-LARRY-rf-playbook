@@ -97,7 +97,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[04.16 - Capitulo 16 - Planear, Prototipar, Construir|16 — Plan, Prototype, Build]] ✅: modo Plan (`Shift+Tab`), modos nombrados, prototipos en `/zt`, `/feature-dev` · [[assets/upstream-site/how.nixfred.com/16-plan-build|original]]
 - [[04.17 - Capitulo 17 - Comandos Slash y Doble Uso|17 — Slash Commands & Dual-Use Tooling]] ✅: `/commit` de serie, `/code-review`, `/security-review`, `/simplify`, doble uso · [[assets/upstream-site/how.nixfred.com/17-slash|original]]
 - [[04.18 - Capitulo 18 - Modelos, Razonamiento y Coste|18 — Models, Thinking & Cost]] ✅: Auto como router, solo Auto, barra con bolsas Auto y API · [[assets/upstream-site/how.nixfred.com/18-models|original]]
-- 19 — Permissions & Safe Autonomy · [[assets/upstream-site/how.nixfred.com/19-permissions|original]]
+- [[04.19 - Capitulo 19 - Permisos y Autonomia Segura|19 — Permissions & Safe Autonomy]] ✅: modo peligroso puro, qué bloquea `deny` de verdad, Sura pregunta antes de borrar lo irrecuperable · [[assets/upstream-site/how.nixfred.com/19-permissions|original]]
 
 ### 5️⃣ Memoria y Reglas (Part V)
 - 20 — Compounding Engineering · [[assets/upstream-site/how.nixfred.com/20-compounding|original]]
