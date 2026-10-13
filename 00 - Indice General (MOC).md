@@ -57,6 +57,7 @@ flowchart TD
         T["10.2 Repos y Forks"]
         U["10.3 Archivo del Sitio"]
         V["10.4 PC Nueva"]
+        W["10.5 Manual de Operación"]
     end
 
     Q -.-> R
@@ -122,7 +123,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[08.33 - Capitulo 33 - Ingenieria que se Acumula Bien Hecha|33 — Compounding Engineering, Done Properly]] ✅: diario + `/destilar` · [[assets/upstream-site/how.nixfred.com/33-compounding-advanced|original]]
 - [[08.34 - Capitulo 34 - Agentes Proactivos|34 — Proactive Agents: Routines Done Right]] ✅ (solo documentación) · [[assets/upstream-site/how.nixfred.com/34-routines-advanced|original]]
 - [[08.35 - Capitulo 35 - Principios|35 — Principles of an AI-Grade Setup]] ✅: auditoría; nixfredOS se queda tal cual · [[assets/upstream-site/how.nixfred.com/35-principles|original]]
-- 36 — Your Operating Manual + Larry's Field Notes · [[assets/upstream-site/how.nixfred.com/36-operating-manual|original]]
+- [[08.36 - Capitulo 36 - Manual de Operacion|36 — Your Operating Manual + Larry's Field Notes]] ✅: manual público en 10.5 · [[assets/upstream-site/how.nixfred.com/36-operating-manual|original]]
 
 ### 9️⃣ Módulos
 - Build & Deploy a Real Website · [[assets/upstream-site/how.nixfred.com/build-website|original]]
@@ -139,6 +140,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[10.2 - Repositorios Upstream y Forks|10.2 — Repositorios Upstream y Forks]]: los 10 forks `PJ-LARRY-fo-*`, sus commits base y cómo clonarlos.
 - [[10.3 - Archivo del Sitio how.nixfred.com|10.3 — Archivo del Sitio]]: copia del sitio y de nixfredos.com, y cómo regenerarla.
 - [[10.4 - Reconstruir en una PC Nueva|10.4 — Reconstruir en una PC Nueva]]: pasos del humano, `assets/rebuild.sh`, decisiones ya tomadas y trampas conocidas.
+- [[10.5 - Manual de Operacion|10.5 — Manual de Operación]]: índice único del setup (qué hay, dónde vive, en qué capítulo se decidió).
 - [[PROGRESO (Ledger)|📒 PROGRESO (Ledger)]]: dónde vamos.
 
 ### 🏁 Último paso

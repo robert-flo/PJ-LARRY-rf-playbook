@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[08.35 - Capitulo 35 - Principios|Capítulo 35 — Principios]].
-- **Siguiente:** Capítulo 36 — Tu manual de operación y las notas de campo de Larry ([[assets/upstream-site/how.nixfred.com/36-operating-manual|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[08.36 - Capitulo 36 - Manual de Operacion|Capítulo 36 — Manual de operación]] (fin de las Partes I–VIII).
+- **Siguiente:** Último paso: integraciones de los forks `PJ-LARRY-fo-*` y `fabric --setup` apuntando al fork. Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -63,6 +63,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 33 | ✅ Hecho | Diario por tarea en `~/.claude/diary.md` (regla "Diary, then distill") y `/destilar` (solo patrones vistos ≥2 veces, alcance estrecho, aplica solo con un sí). Tarea real dejó su entrada; canarios `destilar`/`destilar-unasked` 2/2. Rebuild paso 24. |
 | 2026-10-13 | Capítulo 34 | ✅ Hecho (solo documentación) | Escalera de confianza (investiga → actúa con revisión → actúa sola) y tres recetas traducidas; lo existente (canarios, `/buenosdias`) está en el peldaño 1. |
 | 2026-10-13 | Capítulo 35 | ✅ Hecho | Auditoría "borrar sin piedad" frenada por Robert: el objetivo es nixfredOS tal cual. Nada quitado. nixfredOS comparado con su instalador: solo diferencias de plantilla. Regla nueva "nixfredOS stays as shipped". Reportado sin tocar: 51 skills del instalador duplicadas en el listado (~7k tokens/sesión). |
+| 2026-10-13 | Capítulo 36 | ✅ Hecho | Manual de operación público: [[10.5 - Manual de Operacion\|10.5]], índice de todo el setup con rutas a la capa USER y sin copiar nada privado. Notas de campo de Larry aplicadas a `cursor-agent`. Fin de las Partes I–VIII. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
