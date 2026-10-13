@@ -296,6 +296,15 @@ if systemctl --user is-enabled -q memory-embed.timer 2>/dev/null && systemctl --
 elif ((CHECK)); then todo "pendiente: activar memory-embed.timer"
 else systemctl --user daemon-reload && systemctl --user enable --now memory-embed.timer && ok "timer memory-embed activo"; fi
 
+step "18. Canarios de conducta (Capítulo 15)"
+put "$VAULT/assets/canaries.sh" ~/.local/bin/sura-canaries 755
+for u in sura-canaries.service sura-canaries.timer; do
+  put "$HOME_ASSETS/.config/systemd/user/$u" ~/.config/systemd/user/"$u" 644
+done
+if systemctl --user is-enabled -q sura-canaries.timer 2>/dev/null && systemctl --user is-active -q sura-canaries.timer; then ok "timer sura-canaries (semanal)"
+elif ((CHECK)); then todo "pendiente: activar sura-canaries.timer"
+else systemctl --user daemon-reload && systemctl --user enable --now sura-canaries.timer && ok "timer sura-canaries activo"; fi
+
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi
 ((CHECK)) && echo "Revisión terminada (sin cambios)." || echo "Máquina al día hasta el último capítulo cubierto por este script."

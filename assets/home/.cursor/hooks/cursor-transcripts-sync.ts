@@ -90,6 +90,8 @@ if (existsSync(CURSOR_PROJECTS)) {
     const transcripts = join(projectDir, "agent-transcripts");
     if (!existsSync(transcripts)) continue;
     const cwd = workspacePath(projectDir, ws.name);
+    // Test benches (canaries, hook bisects, the claude adapter) must not become Sura's memory.
+    if (cwd.startsWith(join(HOME, ".cache") + "/") || cwd.startsWith("/tmp/")) continue;
     const destDir = join(CLAUDE_PROJECTS, encodeCwd(cwd));
     for (const conv of readdirSync(transcripts, { withFileTypes: true })) {
       if (!conv.isDirectory()) continue;
