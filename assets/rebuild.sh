@@ -40,8 +40,10 @@ todo "User Rules de Cursor (Settings → Rules → User Rules): copia los textos
 
 step "2. Configuración de cursor-agent (Capítulo 2)"
 mkdir -p "$CURSOR_CFG"
-if cmp -s "$HOME_ASSETS/.config/cursor/statusline.sh" "$CURSOR_CFG/statusline.sh"; then ok "statusline.sh"
-else run install -m 755 "$HOME_ASSETS/.config/cursor/statusline.sh" "$CURSOR_CFG/statusline.sh"; fi
+for f in statusline.sh statusline-usage.sh statusline-nixfredos.sh; do
+  if cmp -s "$HOME_ASSETS/.config/cursor/$f" "$CURSOR_CFG/$f"; then ok "$f"
+  else run install -m 755 "$HOME_ASSETS/.config/cursor/$f" "$CURSOR_CFG/$f"; fi
+done
 cfg="$CURSOR_CFG/cli-config.json"
 frag="$HOME_ASSETS/.config/cursor/cli-config.fragment.json"
 if [[ -f $cfg ]] && jq -e --slurpfile f "$frag" '(.statusLine == $f[0].statusLine) and (.attribution == $f[0].attribution)' "$cfg" >/dev/null; then
