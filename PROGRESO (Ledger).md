@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[06.22 - Capitulo 22 - Subagentes y Contexto Bifurcado|Capítulo 22 — Subagentes y contexto bifurcado]] (falta el login de `sura-cloud`).
-- **Siguiente:** Capítulo 23 — Enjambres, migraciones y equipos de agentes ([[assets/upstream-site/how.nixfred.com/23-swarms|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[06.23 - Capitulo 23 - Enjambres, Migraciones y Equipos de Agentes|Capítulo 23 — Enjambres, migraciones y equipos de agentes]].
+- **Siguiente:** Capítulo 24 — Flujos dinámicos y Ultracode ([[assets/upstream-site/how.nixfred.com/24-workflows|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -50,6 +50,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 20 | ✅ Hecho | El hábito ya existía (Cap. 9 + `SelfHealing.md` + canarios). Regla nueva de alcance: lo que vale solo para un repo va a su `AGENTS.md`. Probado 2 de 2 en repos desechables (rama auxiliar, commit sin trailers, árbol USER intacto). |
 | 2026-10-13 | Capítulo 21 | ✅ Hecho | Los guardianes de shell de nixfredOS no corrían en Cursor (recibían `tool_name: "Shell"` y `cwd: ""`). Adaptador `claude-toolname.sh` vía `wrap-claude-hooks.sh` (rebuild paso 11). `PublicPushGate` bloquea de punta a punta un push con token a un remoto público; `PublicScrubPatterns.txt` con 6 repos privados y 7 frases de TELOS; el vault pasa limpio. |
 | 2026-10-13 | Capítulo 22 | ✅ Hecho (falta paso del humano) | Regla de la flota: código de repo → cloud agent de Cursor (uno por PR, merge solo con orden de Robert); máquina → local. `sura-cloud` sobre `@cursor/sdk` (rebuild paso 19). `/code-review` delega en un subagente nuevo con el brief `code-reviewer.md` (halló la promesa de reintentos falsa). `~/.claude/agents` no es global en `cursor-agent`. |
+| 2026-10-13 | Capítulo 23 | ✅ Hecho | Regla de verificabilidad en `OPERATIONAL_RULES.md`: repartir entre muchos agentes solo con una comprobación mecánica nombrada (tests, lint, grep en cero, build); sin ella, piloto de 2–3 unidades y visto bueno de Robert. Canarios `swarm-checkable` y `swarm-uncheckable` 2/2. Agent teams no existen en `cursor-agent`. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
