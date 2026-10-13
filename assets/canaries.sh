@@ -142,7 +142,7 @@ if ((${#only[@]} == 0)) || [[ " ${only[*]} " == *" full-access "* ]]; then
 fi
 
 printf 'resultado: %d ✓ · %d ✗%s\n' "$pass" "$fail" "$( ((fail)) && printf ' (%s)' "${failed[*]}")" | tee -a "$log"
-jq -n --arg model "$model" --arg date "$(date -Is)" --argjson pass "$pass" --argjson fail "$fail" \
+((${#only[@]})) || jq -n --arg model "$model" --arg date "$(date -Is)" --argjson pass "$pass" --argjson fail "$fail" \
   --arg failed "${failed[*]}" '{date:$date, model:$model, pass:$pass, fail:$fail, failed:($failed|split(" ")|map(select(.!="")))}' >"$state/last.json"
 if ((fail)) && command -v notify-send >/dev/null; then
   notify-send -u critical "Sura canaries: $fail ✗" "${failed[*]} — ver $log" 2>/dev/null

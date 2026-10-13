@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[07.29 - Capitulo 29 - Disenar y Desplegar Rutinas|Capítulo 29 — Diseñar y desplegar rutinas]].
-- **Siguiente:** Capítulo 30 — Sistemas repetibles ([[assets/upstream-site/how.nixfred.com/30-systems|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[07.30 - Capitulo 30 - Sistemas Repetibles|Capítulo 30 — Sistemas repetibles]].
+- **Siguiente:** Capítulo 31 — Claude en todas partes y el ecosistema ([[assets/upstream-site/how.nixfred.com/31-everywhere|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -57,6 +57,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 27 | ✅ Hecho | Robert: "full acceso", sin mapa de carpetas. Regla en "Danger mode" (leer y editar cualquier carpeta sin pedir permiso; siguen preguntar antes de borrar algo irrecuperable y PublicPushGate). Canario `full-access` 1/1. |
 | 2026-10-13 | Capítulo 28 | ✅ Hecho (solo documentación) | Robert eligió solo documentar. Equivalencia: timers de systemd = rutinas locales (6 ya corren); rutina en la nube = GitHub Action con horario + cloud agent (espera a `sura-cloud login`). |
 | 2026-10-13 | Capítulo 29 | ✅ Hecho (solo documentación) | Método disparador / contexto / dirigibilidad traducido a systemd, GitHub Actions y cloud agents (`cloud.repos` acepta varios repos). Nada desplegado. |
+| 2026-10-13 | Capítulo 30 | ✅ Hecho | Briefing bajo demanda: `sura-brief` (rebuild paso 21; solo lectura, 8 s) + `/buenosdias` (briefing dentro del menú, una prioridad). Primera prueba escondía el briefing tras el menú; arreglado. Canarios: `last.json` solo en corridas completas. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
