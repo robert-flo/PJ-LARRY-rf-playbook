@@ -5,7 +5,7 @@
 # `cursor-agent -p --mode ask` instead, with the same stdin/stdout contract (text or JSON envelope).
 # Adapter calls run under a private HOME that only links the Cursor login, so ~/.cursor/hooks.json and
 # ~/.claude/settings.json hooks don't fire and their transcripts stay out of ~/.cursor/projects.
-# Model: CLAUDE_ADAPTER_MODEL (default auto); the requested Claude model is ignored.
+# Model: CLAUDE_ADAPTER_MODEL (default composer-2.5, cheap and fast); the requested Claude model is ignored.
 # Every call is logged with its caller. Restore Omarchy's wrapper with: omarchy-mise-install claude
 log="${XDG_STATE_HOME:-$HOME/.local/state}/claude-guard.log"
 mkdir -p "${log%/*}"
@@ -35,7 +35,7 @@ while (($#)); do
   esac
 done
 [[ -t 0 ]] || prompt+="$(cat)"
-logline adapter --output-format "$format" --model "${CLAUDE_ADAPTER_MODEL:-auto}"
+logline adapter --output-format "$format" --model "${CLAUDE_ADAPTER_MODEL:-composer-2.5}"
 
 agent=$(command -v cursor-agent) || { echo "claude adapter: cursor-agent not found" >&2; exit 127; }
 real_auth="${XDG_CONFIG_HOME:-$HOME/.config}/cursor/auth.json"
@@ -52,4 +52,4 @@ ${prompt}"
 out_format=text; [[ $format == json ]] && out_format=json
 cd "$ahome/ws" || exit 1
 printf '%s' "$input" | env -u XDG_CONFIG_HOME HOME="$ahome" "$agent" -p --trust --mode ask \
-  --model "${CLAUDE_ADAPTER_MODEL:-auto}" --output-format "$out_format"
+  --model "${CLAUDE_ADAPTER_MODEL:-composer-2.5}" --output-format "$out_format"
