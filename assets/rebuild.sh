@@ -233,6 +233,10 @@ if [[ -f $HOME_ASSETS/.gitignore ]]; then
   if cmp -s "$HOME_ASSETS/.gitignore" ~/.gitignore 2>/dev/null; then ok "~/.gitignore (sura-home)"
   else run install -m 644 "$HOME_ASSETS/.gitignore" ~/.gitignore; fi
 fi
+if [[ -f $HOME_ASSETS/.config/git/gitconfig.local ]]; then
+  if cmp -s "$HOME_ASSETS/.config/git/gitconfig.local" ~/.config/git/gitconfig.local 2>/dev/null; then ok "gitconfig.local"
+  else run install -m 644 "$HOME_ASSETS/.config/git/gitconfig.local" ~/.config/git/gitconfig.local; fi
+fi
 put "$HOME_ASSETS/.cursor/hooks/brain-backup.sh" ~/.cursor/hooks/brain-backup.sh 755
 for u in brain-backup.service brain-backup.timer; do
   put "$HOME_ASSETS/.config/systemd/user/$u" ~/.config/systemd/user/"$u" 644

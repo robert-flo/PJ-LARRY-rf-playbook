@@ -1,0 +1,10 @@
+# Machine-local git overrides (included last from ~/.config/git/config).
+# HTTPS GitHub URLs rewrite to SSH so private repos never prompt for a password.
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+    pushInsteadOf = https://github.com/
+
+[credential "https://github.com"]
+    helper =
+    helper = !/usr/bin/env gh auth git-credential
