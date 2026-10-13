@@ -113,7 +113,7 @@ put() { # src dst mode
   else install -D -m "$3" "$1" "$2" && ok "${2/#$HOME/\~} instalado"; fi
 }
 
-step "8. Guardia de claude (Capítulo 5)"
+step "8. Guardia de claude (Capítulo 5; adaptador --print → cursor-agent desde el Capítulo 11)"
 put "$HOME_ASSETS/.local/bin/claude" ~/.local/bin/claude 755
 
 step "9. nixfredOS Core en ~/.claude (Capítulo 5)"
@@ -279,6 +279,22 @@ else
   ok "$n proyectos registrados en PROJECTS.md"
 fi
 todo "el vault vive en ~/Projects/PJ-LARRY-rf-playbook; /zt queda solo para experimentos con try"
+
+step "17. Memoria: extracción y búsqueda semántica (Capítulo 11)"
+put "$HOME_ASSETS/.config/environment.d/lmf4.conf" ~/.config/environment.d/lmf4.conf 644
+if grep -q 'LMF4_EXTRACT_MODEL' ~/.bashrc; then ok "LMF4_EXTRACT_MODEL en ~/.bashrc"
+elif ((CHECK)); then todo "pendiente: añadir assets/home/bashrc.memory.snippet a ~/.bashrc"
+else cat "$HOME_ASSETS/bashrc.memory.snippet" >>~/.bashrc && ok "LMF4_EXTRACT_MODEL añadido a ~/.bashrc"; fi
+command -v ollama >/dev/null && ok "ollama" || run sudo pacman -S --needed --noconfirm ollama
+systemctl is-active -q ollama 2>/dev/null && ok "ollama.service (127.0.0.1:11434)" || run sudo systemctl enable --now ollama.service
+if ollama list 2>/dev/null | grep -q '^nomic-embed-text'; then ok "modelo nomic-embed-text"
+else run ollama pull nomic-embed-text; fi
+for u in memory-embed.service memory-embed.timer; do
+  put "$HOME_ASSETS/.config/systemd/user/$u" ~/.config/systemd/user/"$u" 644
+done
+if systemctl --user is-enabled -q memory-embed.timer 2>/dev/null && systemctl --user is-active -q memory-embed.timer; then ok "timer memory-embed"
+elif ((CHECK)); then todo "pendiente: activar memory-embed.timer"
+else systemctl --user daemon-reload && systemctl --user enable --now memory-embed.timer && ok "timer memory-embed activo"; fi
 
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi

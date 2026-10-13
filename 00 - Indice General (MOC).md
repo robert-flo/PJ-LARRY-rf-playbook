@@ -87,7 +87,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 ### 3️⃣ Configuración (Part III)
 - [[03.9 - Capitulo 9 - Configurar, no Chatear|09 — Setup Beats Model: Configurar, no Chatear]] ✅: árbol USER personal, estilo y verificación de nixfredOS, correcciones como configuración · [[assets/upstream-site/how.nixfred.com/09-configure|original]]
 - [[03.10 - Capitulo 10 - Proyectos, Roles y Referencias|10 — Projects, Roles & Reference Material]] ✅: todo en `~/Projects`, `PROJECTS.md` con alias y privacidad · [[assets/upstream-site/how.nixfred.com/10-projects|original]]
-- 11 — CLAUDE.md, context.md & Memory → `AGENTS.md` y rules · [[assets/upstream-site/how.nixfred.com/11-memory-files|original]]
+- [[03.11 - Capitulo 11 - Memoria Viva|11 — CLAUDE.md, context.md & Memory → Memoria viva]] ✅: adaptador `claude` → `cursor-agent`, extracción LMF4, búsqueda semántica con Ollama · [[assets/upstream-site/how.nixfred.com/11-memory-files|original]]
 - 12 — Prompt Libraries, Templates & Quality Bars · [[assets/upstream-site/how.nixfred.com/12-prompt-library|original]]
 - 13 — Context Discipline · [[assets/upstream-site/how.nixfred.com/13-context|original]]
 - 14 — TELOS · [[assets/upstream-site/how.nixfred.com/14-telos|original]] · [[assets/upstream-site/how.nixfred.com/telos-questions|preguntas]]
