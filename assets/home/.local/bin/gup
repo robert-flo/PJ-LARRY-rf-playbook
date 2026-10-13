@@ -10,8 +10,15 @@
 #           gup -n   (or wgup)  preview only, show what would commit, change nothing
 set -uo pipefail
 
-git rev-parse --is-inside-work-tree >/dev/null 2>&1 || { echo "gup: not inside a git repo"; exit 1; }
-cd "$(git rev-parse --show-toplevel)"
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  if [ -d "${DOTBARE_DIR:-$HOME/.cfg}" ]; then
+    export GIT_DIR="${DOTBARE_DIR:-$HOME/.cfg}"
+    export GIT_WORK_TREE="${DOTBARE_TREE:-$HOME}"
+  else
+    echo "gup: not inside a git repo"; exit 1
+  fi
+fi
+cd "$(git rev-parse --show-toplevel 2>/dev/null || echo "$GIT_WORK_TREE")"
 
 preview=0
 case "${1:-}" in -n|--dry-run|wgup) preview=1; shift;; esac
@@ -21,7 +28,7 @@ if [ -z "$(git status --porcelain)" ]; then echo "gup: nothing to commit, workin
 
 # Direct commits to the default branch are allowed only in the private backup repos
 # (playbook Chapter 7); everywhere else changes go through an auxiliary branch + PR.
-GUP_DIRECT_REMOTES="${GUP_DIRECT_REMOTES:-robert-flo/sura-(brain|brain-user|conversations)(\.git)?$}"
+GUP_DIRECT_REMOTES="${GUP_DIRECT_REMOTES:-robert-flo/sura-(brain|brain-user|conversations|home)(\.git)?$}"
 branch_now="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
 if [ "$branch_now" = master ] || [ "$branch_now" = main ]; then
   if ! git remote get-url origin 2>/dev/null | grep -Eq "$GUP_DIRECT_REMOTES"; then
@@ -44,7 +51,13 @@ fi
 
 if [ "$preview" = 1 ]; then echo "[preview] would commit: \"$msg\" (no changes made)"; exit 0; fi
 
-git add -A
+if git remote get-url origin 2>/dev/null | grep -Eq 'sura-home(\.git)?$'; then
+  # sura-home: only tracked paths (+ .gitignore). Never `git add -A` on $HOME.
+  git add -u
+  [ -f .gitignore ] && git add .gitignore
+else
+  git add -A
+fi
 git commit -q -m "$msg" || { echo "gup: commit failed"; exit 1; }
 # Don't let a stalled network hang the push forever (macOS has no `timeout`):
 # abort an HTTPS push stalled below ~1KB/s for 20s, and a dead SSH push after ~30s.

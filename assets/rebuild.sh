@@ -229,6 +229,10 @@ step "14. Repos privados para siempre (Capítulo 7)"
 command -v gitleaks >/dev/null && ok "gitleaks" || run sudo pacman -S --needed --noconfirm gitleaks
 command -v dotbare >/dev/null && ok "dotbare" || run yay -S --needed --noconfirm dotbare
 put "$HOME_ASSETS/.local/bin/gup" ~/.local/bin/gup 755
+if [[ -f $HOME_ASSETS/.gitignore ]]; then
+  if cmp -s "$HOME_ASSETS/.gitignore" ~/.gitignore 2>/dev/null; then ok "~/.gitignore (sura-home)"
+  else run install -m 644 "$HOME_ASSETS/.gitignore" ~/.gitignore; fi
+fi
 put "$HOME_ASSETS/.cursor/hooks/brain-backup.sh" ~/.cursor/hooks/brain-backup.sh 755
 for u in brain-backup.service brain-backup.timer; do
   put "$HOME_ASSETS/.config/systemd/user/$u" ~/.config/systemd/user/"$u" 644
