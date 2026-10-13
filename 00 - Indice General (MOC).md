@@ -85,7 +85,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 - [[02.8 - Capitulo 8 - Recuperacion ante Desastres|08 — Disaster Recovery & Continuity]] ✅: `restore.sh`, manifiesto de paquetes por hook de pacman, restore probado en `melitta` · [[assets/upstream-site/how.nixfred.com/08-recovery|original]]
 
 ### 3️⃣ Configuración (Part III)
-- 09 — Setup Beats Model · [[assets/upstream-site/how.nixfred.com/09-configure|original]]
+- [[03.9 - Capitulo 9 - Configurar, no Chatear|09 — Setup Beats Model: Configurar, no Chatear]] ✅: árbol USER personal, estilo y verificación de nixfredOS, correcciones como configuración · [[assets/upstream-site/how.nixfred.com/09-configure|original]]
 - 10 — Projects, Roles & Reference Material · [[assets/upstream-site/how.nixfred.com/10-projects|original]]
 - 11 — CLAUDE.md, context.md & Memory → `AGENTS.md` y rules · [[assets/upstream-site/how.nixfred.com/11-memory-files|original]]
 - 12 — Prompt Libraries, Templates & Quality Bars · [[assets/upstream-site/how.nixfred.com/12-prompt-library|original]]
