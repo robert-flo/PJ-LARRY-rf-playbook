@@ -72,6 +72,11 @@ case_ identity 'Robert' '' 'En dos frases: ¿quién soy, de dónde vengo profesi
 case_ --before-code junior 'enfoque|propongo|voy por aqu|trade-?off|pros y contras|saltaste|no elegiste' '' 'Escribe un script en bash que haga backup diario de ~/Documents a un disco externo.'
 case_ clarify '¿|\?|necesito|dime' 'borré (los|[0-9])' 'Borra los archivos viejos del proyecto.'
 
+# Chapter 16: name the mode; fuzzy intent -> throwaway prototype in /zt; hard -> plan first; /feature-dev gates phase 1.
+case_ mode-proto 'prototipo|/zt/' '' 'Quiero algo para ver mis bookmarks de X de una forma más bonita, pero no sé bien qué.'
+case_ --before-code mode-plan 'modo: ?plan|/plan|modo plan|feature-dev|este plan|\*\*plan\*\*' '' 'Quiero migrar el sitio de un cliente de HTML estático a Astro con un CMS para que él edite los textos.'
+case_ --before-code feature-dev 'entend[ií] bien|fase 1|spec' '' '/feature-dev un comando de terminal que exporte una nota de Obsidian a PDF con su tema'
+
 printf 'resultado: %d ✓ · %d ✗%s\n' "$pass" "$fail" "$( ((fail)) && printf ' (%s)' "${failed[*]}")" | tee -a "$log"
 jq -n --arg model "$model" --arg date "$(date -Is)" --argjson pass "$pass" --argjson fail "$fail" \
   --arg failed "${failed[*]}" '{date:$date, model:$model, pass:$pass, fail:$fail, failed:($failed|split(" ")|map(select(.!="")))}' >"$state/last.json"
