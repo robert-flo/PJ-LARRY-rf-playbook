@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[04.15 - Capitulo 15 - El Prompting es una Habilidad|Capítulo 15 — El prompting es una habilidad]].
-- **Siguiente:** Capítulo 16 — Planear, prototipar, construir ([[assets/upstream-site/how.nixfred.com/16-plan-build|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[04.16 - Capitulo 16 - Planear, Prototipar, Construir|Capítulo 16 — Planear, prototipar, construir]].
+- **Siguiente:** Capítulo 17 — Comandos slash y herramientas de doble uso ([[assets/upstream-site/how.nixfred.com/17-slash|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -43,6 +43,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 13 | ✅ Hecho | Equivalentes: `/context`, `/summarize` (sin argumento), `/clear`, `/rewind`. Comando global `/relevo <foco>` para dirigir el resumen. Barra de contexto amarilla al 60 %. Regla en `OPERATIONAL_RULES.md`: Sura propone `/clear` al cambiar de tema (3 de 3 con `auto`; `composer-2.5` no). Base fija medida: ~26k tokens, se mantiene. `rebuild.sh` paso 2 fija `rewind`. |
 | 2026-10-13 | Capítulo 14 | ✅ Hecho | Entrevista TELOS con menús (cinco bloques); `TELOS.md` con las palabras de Robert en `sura-brain-user` (privado; nada copiado al vault). Purga `clean`, filtro de contexto propio en lugar del fijo del generador, resumen regenerado. Regla "Deep context": leer el archivo completo ante preguntas estratégicas y frenar desvíos al entorno. Dos canarios responden contra las metas. |
 | 2026-10-13 | Capítulo 15 | ✅ Hecho | Reglas "How we work together": enfoque y pros y contras antes de código no trivial, preguntas sin tope en menús, cambio de enfoque al dar vueltas. `sura-canaries` (7 casos de los Caps. 13–15) + timer semanal: 7 de 7 con `auto`. El sync de transcripts ya no importa bancos de prueba (`~/.cache`, `/tmp`). `rebuild.sh` paso 18. Memoria limpiada: 53 sesiones de prueba fuera, quedan 10 reales (copia previa en `~/.local/share/`). |
+| 2026-10-13 | Capítulo 16 | ✅ Hecho | Modo Plan de serie (`Shift+Tab`, `/plan`). Regla "Name the mode first" (prototipo en `/zt` / directo / plan). `/feature-dev` global: pregunta → `spec.md` → `plan.md` → tareas con verificación → cierre con evidencia, con aprobación por menú. `sura-canaries` con 10 casos, todos ✓ con `auto`. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
