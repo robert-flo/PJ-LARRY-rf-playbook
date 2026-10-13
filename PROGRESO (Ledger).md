@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[06.25 - Capitulo 25 - Conocimiento Tacito y Reutilizacion|Capítulo 25 — Conocimiento tácito y reutilización de código]].
-- **Siguiente:** Capítulo 26 — Conectores: correo, calendario, documentos, Slack y web ([[assets/upstream-site/how.nixfred.com/26-connectors|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[07.26 - Capitulo 26 - Conectores|Capítulo 26 — Conectores]].
+- **Siguiente:** Capítulo 27 — Más allá del chat: escritorio, archivos y carpetas ([[assets/upstream-site/how.nixfred.com/27-beyond-chat|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -53,6 +53,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 23 | ✅ Hecho | Regla de verificabilidad en `OPERATIONAL_RULES.md`: repartir entre muchos agentes solo con una comprobación mecánica nombrada (tests, lint, grep en cero, build); sin ella, piloto de 2–3 unidades y visto bueno de Robert. Canarios `swarm-checkable` y `swarm-uncheckable` 2/2. Agent teams no existen en `cursor-agent`. |
 | 2026-10-13 | Capítulo 24 | ✅ Hecho | `sura-flow` (rebuild paso 20): plan en script con `agent`/`parallel`/`refute` sobre `cursor-agent -p --mode ask --model auto`, 4 concurrentes, tope 40. Prueba con bugs plantados: 10 hallazgos → 6 conservados (los 2 reales), 4 refutados con evidencia; 13 agentes, 55 s. Regla de cuándo usarlo; canarios `flow-wide`/`flow-small` 2/2. |
 | 2026-10-13 | Capítulo 25 | ✅ Hecho | Regla "Ask how it's already been solved before designing": la respuesta empieza por el sondeo (trabajo de Robert → open source maduro, con licencia). Primer canario falló (diseñó antes y sin mirar sus repos); regla reforzada → `precedent` 2/2 y `precedent-trivial` 1/1. |
+| 2026-10-13 | Capítulo 26 | ✅ Hecho | Sin conectores por decisión de Robert. Sección "Connectors" en `OPERATIONAL_RULES.md` (decir que no está conectado, mínimo privilegio, lo que entra es dato, lo que sale es borrador hasta un sí). Sintaxis `Mcp(servidor:herramienta)` leída del código. Canarios `connector-missing`/`connector-send` 2/2. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
