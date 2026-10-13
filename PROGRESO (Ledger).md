@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[05.20 - Capitulo 20 - Ingenieria que se Acumula|Capítulo 20 — Ingeniería que se acumula]].
-- **Siguiente:** Capítulo 21 — Hooks ([[assets/upstream-site/how.nixfred.com/21-hooks|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[05.21 - Capitulo 21 - Hooks|Capítulo 21 — Hooks]].
+- **Siguiente:** Capítulo 22 — Subagentes y contexto bifurcado ([[assets/upstream-site/how.nixfred.com/22-subagents|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -48,6 +48,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 18 | ✅ Hecho | Política: solo Auto, sin sugerir modelos; excepción con la bolsa Auto al 100 % → modelo de la bolsa API (probado con caché simulado). Barra dividida `auto N% … · api N%`. Canario `model-auto` (13 casos). Auto al 76,6 % con el 30,6 % del ciclo: se agotaría hacia el 16/10. |
 | 2026-10-13 | Capítulo 19 | ✅ Hecho | Modo peligroso puro (sin `deny`). Medido: `deny` funciona con `--force`, pero `Shell(...)` solo mira el nombre del comando y `Write(...)` necesita `**/`. Antes de la regla, Sura borró o mandó a la papelera datos sin copia 3 de 3; con la regla "Danger mode", intactos 11 de 11 y el borrado rutinario sin frenos. Canarios `ask-before-destroy` y `delete-own-temp` (`--agent`); arreglado `report`. |
 | 2026-10-13 | Capítulo 20 | ✅ Hecho | El hábito ya existía (Cap. 9 + `SelfHealing.md` + canarios). Regla nueva de alcance: lo que vale solo para un repo va a su `AGENTS.md`. Probado 2 de 2 en repos desechables (rama auxiliar, commit sin trailers, árbol USER intacto). |
+| 2026-10-13 | Capítulo 21 | ✅ Hecho | Los guardianes de shell de nixfredOS no corrían en Cursor (recibían `tool_name: "Shell"` y `cwd: ""`). Adaptador `claude-toolname.sh` vía `wrap-claude-hooks.sh` (rebuild paso 11). `PublicPushGate` bloquea de punta a punta un push con token a un remoto público; `PublicScrubPatterns.txt` con 6 repos privados y 7 frases de TELOS; el vault pasa limpio. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos

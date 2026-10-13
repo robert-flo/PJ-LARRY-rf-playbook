@@ -167,12 +167,12 @@ else
 fi
 
 step "11. Adaptadores de Cursor (Capítulo 5)"
-for f in nixfredos-context.sh claude-hooks-gate.sh claude-plain2json.sh wrap-claude-hooks.sh cursor-transcripts-sync.sh cursor-transcripts-sync.ts; do
+for f in nixfredos-context.sh claude-hooks-gate.sh claude-plain2json.sh claude-toolname.sh wrap-claude-hooks.sh cursor-transcripts-sync.sh cursor-transcripts-sync.ts; do
   put "$HOME_ASSETS/.cursor/hooks/$f" ~/.cursor/hooks/"$f" 755
 done
 put "$HOME_ASSETS/.cursor/hooks.json" ~/.cursor/hooks.json 644
 put "$HOME_ASSETS/.cursor/mcp.json" ~/.cursor/mcp.json 644
-if ~/.cursor/hooks/wrap-claude-hooks.sh --check >/dev/null 2>&1; then ok "hooks de Claude envueltos (claude-plain2json)"
+if ~/.cursor/hooks/wrap-claude-hooks.sh --check >/dev/null 2>&1; then ok "hooks de Claude envueltos (claude-plain2json, claude-toolname)"
 else run ~/.cursor/hooks/wrap-claude-hooks.sh; fi
 for u in cursor-transcripts-sync.service cursor-transcripts-sync.timer; do
   put "$HOME_ASSETS/.config/systemd/user/$u" ~/.config/systemd/user/"$u" 644
