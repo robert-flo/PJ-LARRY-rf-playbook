@@ -263,6 +263,23 @@ mkdir -p ~/.config/pkglist
   || run sudo /usr/local/bin/pkglist-dump
 todo "restaurar otra PC: assets/restore.sh (nota 02.8)"
 
+step "16. Proyectos en ~/Projects (Capítulo 10)"
+# The list lives in the private USER tree (sura-brain-user), not in this public vault.
+projects="${XDG_CONFIG_HOME:-$HOME/.config}/NIXFREDOS/USER/PROJECTS.md"
+if [[ ! -r $projects ]]; then todo "sin $projects: restaura sura-brain-user (assets/restore.sh) y repite"
+else
+  n=0
+  while IFS='|' read -r dir repo notes; do
+    ((n++)); dest="$HOME/Projects/$dir"
+    [[ -d $dest/.git ]] && continue
+    depth=(); [[ $notes == *shallow* ]] && depth=(--depth 1)
+    if ((CHECK)); then todo "pendiente: clonar $repo en ~/Projects/$dir"
+    else git clone -q "${depth[@]}" "git@github.com:$repo.git" "$dest" && ok "clonado ~/Projects/$dir" || bad "falló clonar $repo"; fi
+  done < <(sed -nE 's#^\|[^|]*\| `~/Projects/([^`/]+)` \| `([^`]+)` \|[^|]*\|(.*)\|$#\1|\2|\3#p' "$projects")
+  ok "$n proyectos registrados en PROJECTS.md"
+fi
+todo "el vault vive en ~/Projects/PJ-LARRY-rf-playbook; /zt queda solo para experimentos con try"
+
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi
 ((CHECK)) && echo "Revisión terminada (sin cambios)." || echo "Máquina al día hasta el último capítulo cubierto por este script."

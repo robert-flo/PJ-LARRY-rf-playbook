@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[03.9 - Capitulo 9 - Configurar, no Chatear|Capítulo 9 — Configurar, no chatear]].
-- **Siguiente:** Capítulo 10 — Proyectos, roles y material de referencia ([[assets/upstream-site/how.nixfred.com/10-projects|original]]).
+- **Último completado:** [[03.10 - Capitulo 10 - Proyectos, Roles y Referencias|Capítulo 10 — Proyectos, roles y material de referencia]].
+- **Siguiente:** Capítulo 11 — `CLAUDE.md`, `context.md` y memoria ([[assets/upstream-site/how.nixfred.com/11-memory-files|original]]). Incluye decidir Ollama o extractor con `cursor-agent`.
 
 ## Registro
 
@@ -37,6 +37,7 @@ date: 2026-10-12
 | 2026-10-12 | Capítulo 7 | ✅ Hecho | Cuatro repos `PRIVATE`: `sura-brain` (`~/.claude`, 42 MB sin `node_modules`), `sura-brain-user` (árbol USER), `sura-conversations` (`memory-backup`) y `sura-home` (dotbare, 268 archivos). Secretos incluidos (decisión del humano). `brain-backup.sh` en `sessionEnd` + timer horario, probado con una sesión real. `gup` con excepción de `master` solo en los repos de backup. `rebuild.sh` paso 14. |
 | 2026-10-12 | Capítulo 8 | ✅ Hecho | Hook de pacman → `~/.config/pkglist/{pacman,aur}.txt` (230 + 12) en `sura-home`. `assets/restore.sh` (dotbare, paquetes, tres repos de nixfredOS, `bun install`, reubicación de `/home/gracie`). Restore probado en el usuario permanente `melitta`: Sura responde como `melitta` con memoria y hooks. Arreglos de la prueba: config de Git con `~/`, operador de Tailscale, timer restaurado. `rebuild.sh` paso 15. |
 | 2026-10-12 | Capítulo 9 | ✅ Hecho | Árbol USER con lo básico de Robert (idioma, foco, forma de trabajar) y sus convenciones en `OPERATIONAL_RULES.md`. Estilo y verificación de nixfredOS sin cambios. Correcciones permanentes escritas sin preguntar: probado con una sesión real (formato de 24 h) y empujado por `brain-backup`. |
+| 2026-10-12 | Capítulo 10 | ✅ Hecho | Todo en `~/Projects/<repo>`: 22 repos clonados y el vault, los playbooks de niri y `assets` movidos desde `/zt`. `USER/PROJECTS.md` con 25 proyectos, visibilidad, rol, alias y regla de privacidad; verificado con `cursor-agent`. `AGENTS.md` en `assets` ([assets#3](https://github.com/robert-flo/assets/pull/3)). `rebuild.sh` paso 16. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
