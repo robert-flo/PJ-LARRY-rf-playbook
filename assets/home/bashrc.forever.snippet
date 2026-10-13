@@ -1,4 +1,7 @@
 
+# Memory-engine CLIs (LMF4 install → ~/bin); ~/.local/bin/mem is a symlink for systemd/Pulse parity
+case ":$PATH:" in *":$HOME/bin:"*) ;; *) export PATH="$HOME/bin:$PATH" ;; esac
+
 # Forever repos (playbook Chapter 7): dotbare manages sura-home in ~/.cfg; wgup previews gup
 export DOTBARE_DIR="$HOME/.cfg" DOTBARE_TREE="$HOME"
 alias wgup='gup -n'
