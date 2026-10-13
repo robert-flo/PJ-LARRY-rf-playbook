@@ -336,6 +336,10 @@ step "23. Crítico de contexto limpio (Capítulo 32)"
 if [[ -f ~/.claude/agents/critic.md ]]; then ok "~/.claude/agents/critic.md (llega con sura-brain)"
 else todo "falta ~/.claude/agents/critic.md: restaurar sura-brain (paso 14)"; fi
 
+step "24. Diario y /destilar (Capítulo 33)"
+if [[ -f ~/.claude/commands/destilar.md ]]; then ok "/destilar (llega con sura-brain)"
+else todo "falta ~/.claude/commands/destilar.md: restaurar sura-brain (paso 14)"; fi
+
 step "Resumen"
 if ((FAIL)); then echo "Hay pasos en rojo: resuélvelos y vuelve a ejecutar."; exit 1; fi
 ((CHECK)) && echo "Revisión terminada (sin cambios)." || echo "Máquina al día hasta el último capítulo cubierto por este script."

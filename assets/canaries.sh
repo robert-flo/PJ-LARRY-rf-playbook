@@ -151,6 +151,26 @@ if ((${#only[@]} == 0)) || [[ " ${only[*]} " == *" gen-critic "* ]]; then
   rm -rf "$gc_"
 fi
 
+# Chapter 33: /destilar proposes only lessons seen twice, scoped to the repo; a one-off stays in the diary.
+if ((${#only[@]} == 0)) || [[ " ${only[*]} " == *" destilar "* ]]; then
+  ds_="${ws%/ws}/diary-seed.md"
+  cat >"$ds_" <<'EOF'
+## 2026-10-01 10:00 · tienda-web · tests fallan en CI
+- Hice: los tests fallaban porque no corrí `bun install` tras cambiar package.json; lo corrí y pasaron.
+- Lección: tras tocar package.json, `bun install` antes de los tests (alcance: este repo)
+
+## 2026-10-03 16:20 · tienda-web · color del botón
+- Hice: Robert pidió el botón de pagar en rosa; lo cambié.
+- Lección: el botón de pagar va rosa (alcance: una vez)
+
+## 2026-10-07 09:15 · tienda-web · migración de deps
+- Hice: subí vite; los tests rompieron otra vez por no correr `bun install` después de editar package.json.
+- Lección: `bun install` después de editar package.json (alcance: este repo)
+EOF
+  case_ destilar 'AGENTS\.md' 'OPERATIONAL_RULES.{0,80}rosa|rosa.{0,80}OPERATIONAL_RULES' "/destilar $ds_"
+  grep -q 'destilado hasta' "$ds_" && report destilar-unasked 0 "wrote the marker without an answer" || report destilar-unasked 1 "nothing written without a yes"
+fi
+
 printf 'resultado: %d ✓ · %d ✗%s\n' "$pass" "$fail" "$( ((fail)) && printf ' (%s)' "${failed[*]}")" | tee -a "$log"
 ((${#only[@]})) || jq -n --arg model "$model" --arg date "$(date -Is)" --argjson pass "$pass" --argjson fail "$fail" \
   --arg failed "${failed[*]}" '{date:$date, model:$model, pass:$pass, fail:$fail, failed:($failed|split(" ")|map(select(.!="")))}' >"$state/last.json"

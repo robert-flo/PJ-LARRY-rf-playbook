@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[08.32 - Capitulo 32 - Patrones Multiagente|Capítulo 32 — Patrones multiagente]].
-- **Siguiente:** Capítulo 33 — Ingeniería que se acumula, bien hecha ([[assets/upstream-site/how.nixfred.com/33-compounding-advanced|original]]). Para retomar: `/seguir` en el vault.
+- **Último completado:** [[08.33 - Capitulo 33 - Ingenieria que se Acumula Bien Hecha|Capítulo 33 — Ingeniería que se acumula, bien hecha]].
+- **Siguiente:** Capítulo 34 — Agentes proactivos: rutinas bien hechas ([[assets/upstream-site/how.nixfred.com/34-routines-advanced|original]]). Para retomar: `/seguir` en el vault.
 
 ## Registro
 
@@ -60,6 +60,7 @@ date: 2026-10-12
 | 2026-10-13 | Capítulo 30 | ✅ Hecho | Briefing bajo demanda: `sura-brief` (rebuild paso 21; solo lectura, 8 s) + `/buenosdias` (briefing dentro del menú, una prioridad). Primera prueba escondía el briefing tras el menú; arreglado. Canarios: `last.json` solo en corridas completas. |
 | 2026-10-13 | Capítulo 31 | ✅ Hecho | Context7 (MCP HTTP remoto) en `~/.cursor/mcp.json`, aprobado con `cursor-agent mcp enable`. Sin regla respondía de memoria; con la regla "Current docs via Context7" 3/3 lo consultan y citan la fuente. Rebuild paso 22. |
 | 2026-10-13 | Capítulo 32 | ✅ Hecho | Generador-crítico: brief `~/.claude/agents/critic.md` + regla (todo texto para clientes o público, sin importar el largo → subagente crítico con solo artefacto, objetivo y público). Primer intento lo saltó por ser corto; regla precisada → 3/3. Canario `gen-critic`; rebuild paso 23. |
+| 2026-10-13 | Capítulo 33 | ✅ Hecho | Diario por tarea en `~/.claude/diary.md` (regla "Diary, then distill") y `/destilar` (solo patrones vistos ≥2 veces, alcance estrecho, aplica solo con un sí). Tarea real dejó su entrada; canarios `destilar`/`destilar-unasked` 2/2. Rebuild paso 24. |
 | 2026-10-12 | Referencia 10.4 | ✅ Hecho | [[10.4 - Reconstruir en una PC Nueva\|Runbook para PC nueva]] + `assets/rebuild.sh` (idempotente, `--check`). En esta máquina sale todo ✓; con un `HOME` vacío reporta cada paso pendiente. |
 
 ## Pendientes abiertos
