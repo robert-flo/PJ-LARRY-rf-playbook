@@ -73,7 +73,7 @@ Cada capítulo tiene su original archivado en `assets/upstream-site/how.nixfred.
 ### 1️⃣ Fundamentos (Part I)
 - [[01.0 - Paso 0 - Desde Cero con cursor-agent|00 — Desde Cero con cursor-agent]] ✅: login, modo `--force`, nixbash como capa sobre Omarchy · [[assets/upstream-site/how.nixfred.com/00-start-here|original]]
 - [[01.1 - Capitulo 1 - El Paradigma de la Terminal|01 — El Paradigma: Por Qué la IA Vive en la Terminal]] ✅: harness > modelo; línea base del harness · [[assets/upstream-site/how.nixfred.com/01-the-paradigm|original]]
-- 02 — Your First Session: Earn Trust in Five Minutes · [[assets/upstream-site/how.nixfred.com/02-first-session|original]]
+- [[01.2 - Capitulo 2 - Primera Sesion|02 — Primera Sesión: Ganarse la Confianza]] ✅: `AGENTS.md`, barra de estado, atribución desactivada · [[assets/upstream-site/how.nixfred.com/02-first-session|original]]
 - 03 — Talk in Choices: The AskUserQuestion Habit · [[assets/upstream-site/how.nixfred.com/03-ask|original]]
 
 ### 2️⃣ Instalación del Stack (Part II)

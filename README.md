@@ -38,13 +38,15 @@ PJ-LARRY-rf-playbook/
 ├── AGENTS.md                                          # 🤖 Reglas para agentes (git, forks, harness)
 ├── 01 - Fundamentos/                                  # 🧭 Part I
 │   ├── 01.0 - Paso 0 - Desde Cero con cursor-agent.md
-│   └── 01.1 - Capitulo 1 - El Paradigma de la Terminal.md
+│   ├── 01.1 - Capitulo 1 - El Paradigma de la Terminal.md
+│   └── 01.2 - Capitulo 2 - Primera Sesion.md
 ├── 10 - Referencias/                                  # 📚 Equivalencias, forks y archivo
 │   ├── 10.1 - Equivalencias Claude Code a cursor-agent.md
 │   ├── 10.2 - Repositorios Upstream y Forks.md
 │   └── 10.3 - Archivo del Sitio how.nixfred.com.md
 ├── nixfredOS/                                         # 🧠 Submódulo: fork PJ-LARRY-fo-nixfredOS (personal)
 └── assets/
+    ├── home/                                          # Copias de archivos de usuario (p. ej. .config/cursor/statusline.sh)
     └── upstream-site/                                 # Copia del sitio en Markdown (ver 10.3)
         ├── html2md.py
         ├── how.nixfred.com/                           # 55 páginas + install.sh + seed/
