@@ -14,6 +14,7 @@ Este repositorio es un vault de Obsidian y, a la vez, el guion que un agente (`c
 
 - Nivel en la terminal: **avanzado** (acordado en el Capítulo 1). No explicar cada comando ni pedir permiso en pasos rutinarios; detenerse solo en lo irreversible (borrar datos, reescribir historia publicada, cambios de visibilidad, gastos) y en las decisiones que solo él puede tomar.
 - Idioma de las notas y de la conversación: español.
+- **Ofrecer opciones** (Capítulo 3): cuando una decisión le toca al humano, dar 2–4 opciones concretas con "o escribe la tuya"; una respuesta fuera del menú es válida. Nada de menús para pasos rutinarios. El hábito y el nivel también están en las User Rules de su cuenta de Cursor.
 
 ## Git
 

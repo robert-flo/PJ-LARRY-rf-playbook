@@ -19,8 +19,8 @@ date: 2026-10-12
 
 ## Estado actual
 
-- **Último completado:** [[01.2 - Capitulo 2 - Primera Sesion|Capítulo 2 — Primera Sesión]]
-- **Siguiente:** Capítulo 3 — Talk in Choices ([[assets/upstream-site/how.nixfred.com/03-ask|original]]).
+- **Último completado:** [[01.3 - Capitulo 3 - Hablar en Opciones|Capítulo 3 — Hablar en Opciones]] (fin de la Part I).
+- **Siguiente:** Capítulo 4 — The Larry Stack ([[assets/upstream-site/how.nixfred.com/04-larry-stack|original]]), Part II: instalación de nixfredOS.
 
 ## Registro
 
@@ -30,6 +30,7 @@ date: 2026-10-12
 | 2026-10-12 | Paso 0 | ✅ Hecho | `cursor-agent` logueado, modo `--force`, plan Pro anual. nixbash como capa sobre Omarchy ([PJ-LARRY-fo-nixbash#1](https://github.com/robert-flo/PJ-LARRY-fo-nixbash/pull/1)). Tailscale pospuesto al Cap. 6. |
 | 2026-10-12 | Capítulo 1 | ✅ Hecho | Modelo mental (sin instalación). Nivel del humano: avanzado. Línea base del harness en [[01.1 - Capitulo 1 - El Paradigma de la Terminal\|la nota]]. |
 | 2026-10-12 | Capítulo 2 | ✅ Hecho | `AGENTS.md` cargado por `cursor-agent` (verificado). Barra de estado en `~/.config/cursor/statusline.sh`. Atribución de commits/PRs desactivada. Sin `/init` ni `/voice` en el CLI. |
+| 2026-10-12 | Capítulo 3 | ✅ Hecho | Hábito de opciones y nivel avanzado como User Rules de Cursor (globales; `~/.cursor/rules` no lo es). Verificado desde `/tmp`. |
 
 ## Pendientes abiertos
 
