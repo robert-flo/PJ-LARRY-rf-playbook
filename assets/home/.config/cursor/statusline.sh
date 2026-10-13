@@ -32,8 +32,8 @@ bar() { # pct width
   for ((i = 0; i < w; i++)); do if ((i < f)); then b+="▓"; else b+="░"; fi; done
   printf '%s' "$b"
 }
-level_color() { # pct -> green/yellow/red
-  if (($1 >= 80)); then echo 31; elif (($1 >= 50)); then echo 33; else echo 32; fi
+level_color() { # pct [yellow-from=50] -> green/yellow/red
+  if (($1 >= 80)); then echo 31; elif (($1 >= ${2:-50})); then echo 33; else echo 32; fi
 }
 
 # Auto hides the real model; only then look up the last served slug in this chat's store.
@@ -153,11 +153,11 @@ session_line() { # full|short|bare
   fi
   raw " "
   if [[ $1 == full ]]; then
-    put "$(level_color "$pct")" "$(bar "$pct" 10) $pct%"
+    put "$(level_color "$pct" 60)" "$(bar "$pct" 10) $pct%"
     raw " "
     put 34 "${dir/#$HOME/\~}"
   else
-    put "$(level_color "$pct")" "ctx $pct%"
+    put "$(level_color "$pct" 60)" "ctx $pct%"
     raw " "
     put 34 "${dir##*/}"
   fi
